@@ -1,5 +1,0 @@
-.. theory-manual
-
-#############
-Theory Manual
-#############

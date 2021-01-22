@@ -1,5 +1,0 @@
-.. developers-manual
-
-#################
-Developers Manual
-#################

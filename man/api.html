@@ -401,12 +401,6 @@ coefficients.</p>
 <dd><p>This method calculates and outputs the real added mass force time history.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="objects.bodyClass.write_paraview_vtp">
-<code class="descname">write_paraview_vtp</code><span class="sig-paren">(</span><em>t</em>, <em>pos_all</em>, <em>bodyname</em>, <em>model</em>, <em>simdate</em>, <em>hspressure</em>, <em>wavenonlinearpressure</em>, <em>wavelinearpressure</em>, <em>pathParaviewVideo</em>, <em>vtkbodiesii</em><span class="sig-paren">)</span><a class="headerlink" href="#objects.bodyClass.write_paraview_vtp" title="Permalink to this definition">¶</a></dt>
-<dd><p>This methods writes vtp files for Paraview visualization.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -624,31 +618,6 @@ frame or relative to other bodies.</p>
 <dt id="objects.mooringClass.moorDynInput">
 <code class="descname">moorDynInput</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.mooringClass.moorDynInput" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to read MoorDyn input file</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="objects.mooringClass.write_paraview_vtp">
-<code class="descname">write_paraview_vtp</code><span class="sig-paren">(</span><em>moorDyn</em>, <em>model</em>, <em>t</em>, <em>simdate</em>, <em>nline</em>, <em>nnode</em>, <em>pathParaviewVideo</em>, <em>TimeBodyParav</em>, <em>NewTimeParaview</em><span class="sig-paren">)</span><a class="headerlink" href="#objects.mooringClass.write_paraview_vtp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to write <code class="docutils literal notranslate"><span class="pre">vtp</span></code> Paraview visualization files</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>moorDyn</strong> (<em>obj</em>) – The moorDyn object</li>
-<li><strong>model</strong> (<em>string</em>) – The simMechanics <code class="docutils literal notranslate"><span class="pre">.slx</span></code> file</li>
-<li><strong>t</strong> (<em>float vector</em>) – Moordyn time vector</li>
-<li><strong>simdate</strong> (<em>string</em>) – Date string</li>
-<li><strong>nline</strong> (<em>integer</em>) – Number of mooring lines</li>
-<li><strong>nnode</strong> (<em>integer</em>) – Number of nodes on mooring lines</li>
-<li><strong>pathParaviewVideo</strong> (<em>directory</em>) – Directory the Paraview files were saved</li>
-<li><strong>TimeBodyParav</strong> (<em>float vector</em>) – Paraview time vector</li>
-<li><strong>simu.g</strong> (<em>float</em>) – Gravitational acceleration from simulationClass</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 </dd></dl>
@@ -979,14 +948,6 @@ output from each instance of a WEC-Sim class (e.g.
 <dd><p>This method writes WEC-Sim outputs to a (ASCII) text file.
 This method is executed by specifying <code class="docutils literal notranslate"><span class="pre">simu.outputtxt=1</span></code>
 in the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="objects.responseClass.write_paraview">
-<code class="descname">write_paraview</code><span class="sig-paren">(</span><em>bodies</em>, <em>t</em>, <em>model</em>, <em>simdate</em>, <em>wavetype</em>, <em>mooring</em>, <em>pathParaviewVideo</em><span class="sig-paren">)</span><a class="headerlink" href="#objects.responseClass.write_paraview" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method writes <code class="docutils literal notranslate"><span class="pre">*.vtp</span></code> files for visualization with
-ParaView. This method is executed by specifying
-<code class="docutils literal notranslate"><span class="pre">simu.paraview=1</span></code> in the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1611,16 +1572,10 @@ messages if parameters are not properly defined.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="objects.waveClass.write_paraview_vtp">
-<code class="descclassname">waveClass.</code><code class="descname">write_paraview_vtp</code><span class="sig-paren">(</span><em>t</em>, <em>numPointsX</em>, <em>numPointsY</em>, <em>domainSize</em>, <em>model</em>, <em>simdate</em>, <em>mooring</em>, <em>pathParaviewVideo</em>, <em>TimeBodyParav</em>, <em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#objects.waveClass.write_paraview_vtp" title="Permalink to this definition">¶</a></dt>
-<dd><p>This methods writes vtp files for Paraview visualization.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="objects.waveClass.waveElevationGrid">
 <code class="descclassname">waveClass.</code><code class="descname">waveElevationGrid</code><span class="sig-paren">(</span><em>t</em>, <em>X</em>, <em>Y</em>, <em>TimeBodyParav</em>, <em>it</em>, <em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#objects.waveClass.waveElevationGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method calculates wave elevation on a grid at a given
-time, used by: <span class="math notranslate nohighlight">\(waveClass.write_paraview_vtp\)</span>.</p>
+time, used by: <code class="xref mat mat-func docutils literal notranslate"><span class="pre">write_paraview_wave()</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1687,7 +1642,7 @@ time, used by: <span class="math notranslate nohighlight">\(waveClass.write_para
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
         <span class="fa fa-book"> Other Versions</span>
-        v: master
+        v: new_docs_structure
         <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
