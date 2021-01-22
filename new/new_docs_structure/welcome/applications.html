@@ -192,72 +192,128 @@
             
   <div class="section" id="applications">
 <span id="user-applications"></span><h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="https://github.com/WEC-Sim/WEC-Sim_Applications">WEC-Sim Applications</a> repository contains many applications of the WEC-Sim code that demonstrate WEC-Sim <span class="xref std std-ref">Advanced Features</span>. This includes tutorials by the WEC-Sim team as well as user-shared examples and covers topics from body interactions, numerical set-up, batch runs, visualization, control examples, mooring and many more cases. These applications highlight the versatility of WEC-Sim and can be used as a starting point for users interested in a given application.
-The WEC-Sim Applications repository is included as a <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">submodule</a> of the WEC-Sim repository. The applications are summarized below.</p>
+<p>The <a class="reference external" href="https://github.com/WEC-Sim/WEC-Sim_Applications">WEC-Sim Applications</a>
+repository contains many applications of the WEC-Sim code that demonstrate
+WEC-Sim <a class="reference internal" href="../user/advanced_features.html#user-advanced-features"><span class="std std-ref">Advanced Features</span></a>. This includes
+tutorials by the WEC-Sim team as well as user-shared examples and covers topics
+from body interactions, numerical set-up, batch runs, visualization, control
+examples, mooring and many more cases. These applications highlight the
+versatility of WEC-Sim and can be used as a starting point for users interested
+in a given application. The WEC-Sim Applications repository is included as a
+<a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">submodule</a> of the
+WEC-Sim repository. The applications are summarized below.</p>
 <div class="section" id="body-to-body-interactions">
 <h2>Body-to-Body Interactions<a class="headerlink" href="#body-to-body-interactions" title="Permalink to this headline">¶</a></h2>
-<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#body-to-body-interactions">Body-to-Body (B2B)</a> to run WEC-Sim for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a> geometry. The scripts run and plot the RM3 model with B2B on/off and with Regular/RegularCIC. Execute the <cite>runB2B.m</cite> script to run this case.</p>
+<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#body-to-body-interactions">Body-to-Body (B2B)</a> to run WEC-Sim for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a>
+geometry. The scripts run and plot the RM3 model with B2B on/off and with
+Regular/RegularCIC. Execute the <cite>runB2B.m</cite> script to run this case.</p>
 </div>
 <div class="section" id="desalination">
 <h2>Desalination<a class="headerlink" href="#desalination" title="Permalink to this headline">¶</a></h2>
-<p>Example using WEC-Sim for desalination based on the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a> geometry. Note the dependency on SimScape Fluids to run this desalination case.</p>
+<p>Example using WEC-Sim for desalination based on the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a>
+geometry. Note the dependency on SimScape Fluids to run this desalination case.</p>
 </div>
 <div class="section" id="free-decay">
 <h2>Free Decay<a class="headerlink" href="#free-decay" title="Permalink to this headline">¶</a></h2>
-<p>Example using WEC-Sim to simulate <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#decay-tests">free decay</a> of a sphere in heave, using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#multiple-condition-runs-mcr">Multiple Condition Runs</a>.  Execute the <cite>runFreeDecay.m</cite> script to run this case.</p>
+<p>Example using WEC-Sim to simulate <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#decay-tests">free decay</a>
+of a sphere in heave, using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#multiple-condition-runs-mcr">Multiple Condition Runs</a>.
+Execute the <cite>runFreeDecay.m</cite> script to run this case.</p>
 </div>
 <div class="section" id="generalized-body-modes">
 <h2>Generalized Body Modes<a class="headerlink" href="#generalized-body-modes" title="Permalink to this headline">¶</a></h2>
-<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#generalized-body-modes">Generalized Body Modes</a> in WEC-Sim. In this application a barge is allowed four additional flexible degrees of freedom. Note that this requires the BEM solver also account for these general degrees of freedom and output the appropriate quantities required by BEMIO.</p>
+<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#generalized-body-modes">Generalized Body Modes</a>
+in WEC-Sim. In this application a barge is allowed four additional flexible
+degrees of freedom. Note that this requires the BEM solver also account for
+these general degrees of freedom and output the appropriate quantities required
+by BEMIO.</p>
 </div>
 <div class="section" id="mooring">
 <h2>Mooring<a class="headerlink" href="#mooring" title="Permalink to this headline">¶</a></h2>
-<p>One example using the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a> geometry coupled with <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#moordyn">MoorDyn</a> to simulate a more realistic mooring system. And another example modeling the RM3 with a Mooring Matrix. The MoorDyn application consists of 3 catenary mooring lines attached to floating buoys and then to different points on the spar and anchored at the sea floor.</p>
+<p>One example using the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a>
+geometry coupled with <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#moordyn">MoorDyn</a>
+to simulate a more realistic mooring system. And another example modeling the
+RM3 with a Mooring Matrix. The MoorDyn application consists of 3 catenary
+mooring lines attached to floating buoys and then to different points on the
+spar and anchored at the sea floor.</p>
 </div>
 <div class="section" id="multiple-condition-run">
 <h2>Multiple Condition Run<a class="headerlink" href="#multiple-condition-run" title="Permalink to this headline">¶</a></h2>
-<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#multiple-condition-runs-mcr">Multiple Condition Runs (MCR)</a> to run WEC-Sim with Multiple Condition Runs for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a>. These examples demonstrate each of the 3 different ways to run WEC-Sim with MCR and generates a power matrix for each PTO damping value. The last example demonstrates how to use MCR to vary the imported sea state test file and specify corresponding phase. Execute <cite>wecSimMCR.m</cite> from the case directory to run an example.</p>
+<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#multiple-condition-runs-mcr">Multiple Condition Runs (MCR)</a>
+to run WEC-Sim with Multiple Condition Runs for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a>.
+These examples demonstrate each of the 3 different ways to run WEC-Sim with MCR
+and generates a power matrix for each PTO damping value. The last example
+demonstrates how to use MCR to vary the imported sea state test file and
+specify corresponding phase. Execute <cite>wecSimMCR.m</cite> from the case directory to
+run an example.</p>
 <ul class="simple">
 <li>MCROPT1: Cases defined using arrays of values for period and height.</li>
 <li>MCROPT2: Cases defined with wave statistics in an Excel spreadsheet</li>
 <li>MCROPT3: Cases defined in a MATLAB data file (<code class="docutils literal notranslate"><span class="pre">.mat</span></code>)</li>
-<li>MCROPT4: Cases defined using several MATLAB data files (<code class="docutils literal notranslate"><span class="pre">*.mat</span></code>) of the wave spectrum</li>
+<li>MCROPT4: Cases defined using several MATLAB data files (<code class="docutils literal notranslate"><span class="pre">*.mat</span></code>) of the
+wave spectrum</li>
 </ul>
 </div>
 <div class="section" id="nonhydrodynamic-body">
 <h2>Nonhydrodynamic Body<a class="headerlink" href="#nonhydrodynamic-body" title="Permalink to this headline">¶</a></h2>
-<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#non-hydrodynamic-bodies">Non-Hydro Body</a> to run WEC-Sim for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a>. This example models the base as a nonhydro body, and the flap as a hydrodynamic body.</p>
+<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#non-hydrodynamic-bodies">Non-Hydro Body</a>
+to run WEC-Sim for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a>.
+This example models the base as a nonhydro body, and the flap as a hydrodynamic
+body.</p>
 </div>
 <div class="section" id="nonlinear-hydrodynamic-body">
 <h2>Nonlinear Hydrodynamic Body<a class="headerlink" href="#nonlinear-hydrodynamic-body" title="Permalink to this headline">¶</a></h2>
-<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#nonlinear-buoyancy-and-froude-krylov-excitation">Nonlinear Hydro</a> to run WEC-Sim for a <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#nonlinear-buoyancy-and-froude-krylov-wave-excitation-tutorial-heaving-ellipsoid">heaving ellipsoid</a>. Includes examples of running non-linear hydrodynamics with different <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#time-step-features">fixed and variable time-step solvers</a> (ode4/ode45), and different regular wave formulations (with/without CIC). Execute the <cite>runNL.m</cite> script to run this case.</p>
+<p>Example using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#nonlinear-buoyancy-and-froude-krylov-excitation">Nonlinear Hydro</a>
+to run WEC-Sim for a <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#nonlinear-buoyancy-and-froude-krylov-wave-excitation-tutorial-heaving-ellipsoid">heaving ellipsoid</a>.
+Includes examples of running non-linear hydrodynamics with different <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#time-step-features">fixed and
+variable time-step solvers</a>
+(ode4/ode45), and different regular wave formulations (with/without CIC).
+Execute the <cite>runNL.m</cite> script to run this case.</p>
 </div>
 <div class="section" id="numerical-options">
 <h2>Numerical Options<a class="headerlink" href="#numerical-options" title="Permalink to this headline">¶</a></h2>
-<p>Example that compares various numerical options in WEC-Sim. This case compares the differential equation solver <a class="reference external" href="https://wec-sim.github.io/WEC-Sim/advanced_features.html#time-step-features">time step settings</a> (<code class="docutils literal notranslate"><span class="pre">ode4,</span> <span class="pre">ode45</span></code>), the <a class="reference external" href="https://wec-sim.github.io/WEC-Sim/theory.html#convolution-integral-formulation">convolution integral</a> and the <a class="reference external" href="https://wec-sim.github.io/WEC-Sim/theory.html#state-space">state-space</a> representations. Execute the <cite>run_NumOpt.m</cite> script to run this case.</p>
+<p>Example that compares various numerical options in WEC-Sim. This case compares
+the differential equation solver <a class="reference external" href="https://wec-sim.github.io/WEC-Sim/advanced_features.html#time-step-features">time step settings</a>
+(<code class="docutils literal notranslate"><span class="pre">ode4,</span> <span class="pre">ode45</span></code>), the <a class="reference external" href="https://wec-sim.github.io/WEC-Sim/theory.html#convolution-integral-formulation">convolution integral</a>
+and the <a class="reference external" href="https://wec-sim.github.io/WEC-Sim/theory.html#state-space">state-space</a>
+representations. Execute the <cite>run_NumOpt.m</cite> script to run this case.</p>
 </div>
 <div class="section" id="paraview-visualization">
 <h2>Paraview Visualization<a class="headerlink" href="#paraview-visualization" title="Permalink to this headline">¶</a></h2>
-<p>Example using ParaView data visualization for WEC-Sim coupled with <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#moordyn">MoorDyn</a> to simulate a more realistic mooring system for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a> geometry. Example consists of 3 catenary mooring lines attached to different points on the spar and anchored at the sea floor.</p>
-<p>Example using ParaView data visualization for WEC-Sim with <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#nonlinear-buoyancy-and-froude-krylov-excitation">Non-linear Hydro</a> for the Flap and a <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#non-hydrodynamic-bodies">Non-Hydro Body</a> for the Base to run WEC-Sim for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a> geometry.</p>
+<p>Example using ParaView data visualization for WEC-Sim coupled with <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#moordyn">MoorDyn</a>
+to simulate a more realistic mooring system for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a>
+geometry. Example consists of 3 catenary mooring lines attached to different
+points on the spar and anchored at the sea floor.</p>
+<p>Example using ParaView data visualization for WEC-Sim with <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#nonlinear-buoyancy-and-froude-krylov-excitation">Non-linear Hydro</a>
+for the Flap and a <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#non-hydrodynamic-bodies">Non-Hydro Body</a>
+for the Base to run WEC-Sim for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a>
+geometry.</p>
 </div>
 <div class="section" id="passive-yaw">
 <h2>Passive Yaw<a class="headerlink" href="#passive-yaw" title="Permalink to this headline">¶</a></h2>
-<p>Example on using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#passive-yaw-implementation">Passive Yaw</a> to run WEC-Sim for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a> geometry. Execute the <cite>runYawCases.m</cite> script to run this case.</p>
+<p>Example on using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#passive-yaw-implementation">Passive Yaw</a>
+to run WEC-Sim for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a> geometry.
+Execute the <cite>runYawCases.m</cite> script to run this case.</p>
 </div>
 <div class="section" id="pto-sim">
 <h2>PTO-Sim<a class="headerlink" href="#pto-sim" title="Permalink to this headline">¶</a></h2>
-<p>Examples using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#pto-sim">PTO-Sim</a>. Examples of WEC-Sim models using PTO-Sim are included for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a> geometry and <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a> geometry.</p>
+<p>Examples using <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/advanced_features.html#pto-sim">PTO-Sim</a>.
+Examples of WEC-Sim models using PTO-Sim are included for the <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3">RM3</a>
+geometry and <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/tutorials.html#oscillating-surge-wec-oswec">OSWEC</a>
+geometry.</p>
 </div>
 <div class="section" id="wecccomp">
 <h2>WECCCOMP<a class="headerlink" href="#wecccomp" title="Permalink to this headline">¶</a></h2>
-<p>Numerical model for the WEC Control Competition (WECCCOMP) using WEC-Sim to model the WaveStar with various fault implementations. See the project report written by Erica Lindbeck in the “report” folder.</p>
+<p>Numerical model for the WEC Control Competition (WECCCOMP) using WEC-Sim to
+model the WaveStar with various fault implementations. See the project report
+written by Erica Lindbeck in the “report” folder.</p>
 </div>
 <div class="section" id="write-hdf5">
 <h2>Write HDF5<a class="headerlink" href="#write-hdf5" title="Permalink to this headline">¶</a></h2>
-<p>This is an example of how to write your own h5 file using MATLAB.
-Can be useful if you want to modify your coefficients, use experimental coefficients, or coefficients from another BEM code other than NEMOH, WAMIT, or AQWA.
-For more details see <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/features.html#bemio-writing-your-own-h5-file">BEMIO feature</a> documentation.</p>
+<p>This is an example of how to write your own h5 file using MATLAB. Can be useful
+if you want to modify your coefficients, use experimental coefficients, or
+coefficients from another BEM code other than NEMOH, WAMIT, or AQWA. For more
+details see <a class="reference external" href="http://wec-sim.github.io/WEC-Sim/features.html#bemio-writing-your-own-h5-file">BEMIO feature</a>
+documentation.</p>
 </div>
 </div>
 

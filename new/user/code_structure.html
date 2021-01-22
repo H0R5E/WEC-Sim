@@ -203,7 +203,7 @@
 structure. For more information about WEC-Sim’s code structure, refer to the
 <a class="reference internal" href="../welcome/webinars.html#welcome-webinars-code-structure"><span class="std std-ref">WEC-Sim Code Structure</span></a> webinar.</p>
 <div class="section" id="wec-sim-source-code">
-<h2>WEC-Sim Source Code<a class="headerlink" href="#wec-sim-source-code" title="Permalink to this headline">¶</a></h2>
+<span id="user-code-structure-src"></span><h2>WEC-Sim Source Code<a class="headerlink" href="#wec-sim-source-code" title="Permalink to this headline">¶</a></h2>
 <p>The directory where the WEC-Sim code is contained is referred to as <code class="docutils literal notranslate"><span class="pre">$WECSIM</span></code>
 (e.g. <code class="docutils literal notranslate"><span class="pre">C:/User/Documents/GitHub/WEC-Sim</span></code>). The WEC-Sim source code files are
 contained within a source directory referred to as <code class="docutils literal notranslate"><span class="pre">$WECSIM/source</span></code>. The
@@ -240,7 +240,7 @@ simulations in WEC-Sim.</p>
 </table>
 </div>
 <div class="section" id="wec-sim-objects">
-<h2>WEC-Sim Objects<a class="headerlink" href="#wec-sim-objects" title="Permalink to this headline">¶</a></h2>
+<span id="user-code-structure-objects"></span><h2>WEC-Sim Objects<a class="headerlink" href="#wec-sim-objects" title="Permalink to this headline">¶</a></h2>
 <p>All information required to run WEC-Sim simulations is contained within the
 <code class="docutils literal notranslate"><span class="pre">simu</span></code>, <code class="docutils literal notranslate"><span class="pre">waves</span></code>, <code class="docutils literal notranslate"><span class="pre">body(i)</span></code>, <code class="docutils literal notranslate"><span class="pre">pto(i)</span></code>, <code class="docutils literal notranslate"><span class="pre">constraint(i)</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">mooring(i)</span></code> objects (instances of the simulationClass, waveClass, bodyClass,
@@ -579,7 +579,7 @@ explained in the <a class="reference internal" href="#user-code-structure-output
 </div>
 </div>
 <div class="section" id="wec-sim-library">
-<h2>WEC-Sim Library<a class="headerlink" href="#wec-sim-library" title="Permalink to this headline">¶</a></h2>
+<span id="user-code-structure-library"></span><h2>WEC-Sim Library<a class="headerlink" href="#wec-sim-library" title="Permalink to this headline">¶</a></h2>
 <p>In addition to the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, a WEC-Sim simulation requires a
 simulink model (<code class="docutils literal notranslate"><span class="pre">*.slx</span></code>) that represents the WEC system components and
 connectivities. Similar to how the input file uses the WEC-Sim classes, the

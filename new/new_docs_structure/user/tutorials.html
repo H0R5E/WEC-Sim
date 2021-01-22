@@ -196,8 +196,8 @@ using the provided Tutorials (located in the WEC-Sim <code class="docutils liter
 directory). Two WEC-Sim tutorials are provided: the Two-Body Point Absorber
 (RM3), and the Oscillating Surge WEC (OSWEC). For information about the
 implementation of the WEC-Sim code refer to the refer to the
-<span class="xref std std-ref">code_structure</span> section. For information about additional WEC-Sim
-features, refer to <span class="xref std std-ref">advanced_features</span>.</p>
+<a class="reference internal" href="code_structure.html#user-code-structure"><span class="std std-ref">Code Structure</span></a> section. For information about additional WEC-Sim
+features, refer to <a class="reference internal" href="advanced_features.html#user-advanced-features"><span class="std std-ref">Advanced Features</span></a>.</p>
 <div class="section" id="two-body-point-absorber-rm3">
 <span id="user-tutorials-rm3"></span><h2>Two-Body Point Absorber (RM3)<a class="headerlink" href="#two-body-point-absorber-rm3" title="Permalink to this headline">¶</a></h2>
 <p>This section describes the application of the WEC-Sim code to model the
@@ -332,11 +332,12 @@ results once the WEC-Sim run is complete.</p>
 <div class="section" id="step-1-run-bemio">
 <span id="user-tutorials-rm3-step-one"></span><h4>Step 1: Run BEMIO<a class="headerlink" href="#step-1-run-bemio" title="Permalink to this headline">¶</a></h4>
 <p>Hydrodynamic data for each RM3 body must be parsed into a HDF5 file using
-<a class="reference internal" href="advanced_features.html#bemio"><span class="std std-ref">BEMIO</span></a>. BEMIO converts hydrodynamic data from WAMIT, NEMOH or AQWA into a
-HDF5 file, <code class="docutils literal notranslate"><span class="pre">*.h5</span></code> that is then read by WEC-Sim. The RM3 tutorial includes
-data from a WAMIT run, <code class="docutils literal notranslate"><span class="pre">rm3.out</span></code>, of the RM3 geometry in the
-<code class="docutils literal notranslate"><span class="pre">$WECSIM/tutorials/rm3/hydroData/</span></code> directory. The RM3 WAMIT <code class="docutils literal notranslate"><span class="pre">rm3.out</span></code> file
-and the BEMIO <code class="docutils literal notranslate"><span class="pre">bemio.m</span></code> script are then used to generate the <code class="docutils literal notranslate"><span class="pre">rm3.h5</span></code> file.</p>
+<a class="reference internal" href="advanced_features.html#user-advanced-features-bemio"><span class="std std-ref">BEMIO</span></a>. BEMIO converts hydrodynamic data from
+WAMIT, NEMOH or AQWA into a HDF5 file, <code class="docutils literal notranslate"><span class="pre">*.h5</span></code> that is then read by WEC-Sim.
+The RM3 tutorial includes data from a WAMIT run, <code class="docutils literal notranslate"><span class="pre">rm3.out</span></code>, of the RM3
+geometry in the <code class="docutils literal notranslate"><span class="pre">$WECSIM/tutorials/rm3/hydroData/</span></code> directory. The RM3 WAMIT
+<code class="docutils literal notranslate"><span class="pre">rm3.out</span></code> file and the BEMIO <code class="docutils literal notranslate"><span class="pre">bemio.m</span></code> script are then used to generate the
+<code class="docutils literal notranslate"><span class="pre">rm3.h5</span></code> file.</p>
 <p>This is done by navigating to the <code class="docutils literal notranslate"><span class="pre">$WECSIM/tutorials/rm3/hydroData/</span></code>
 directory, and typing``bemio`` in the MATLAB Command Window:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">bemio</span>
@@ -581,12 +582,12 @@ once the WEC-Sim run is complete.</p>
 <div class="section" id="user-tutorials-oswec-step-one">
 <span id="id4"></span><h4>Step 1: Run BEMIO<a class="headerlink" href="#user-tutorials-oswec-step-one" title="Permalink to this headline">¶</a></h4>
 <p>Hydrodynamic data for each OSWEC body must be parsed into a HDF5 file using
-<a class="reference internal" href="advanced_features.html#bemio"><span class="std std-ref">BEMIO</span></a>. BEMIO converts hydrodynamic data from WAMIT, NEMOH or AQWA into a
-HDF5 file, <code class="docutils literal notranslate"><span class="pre">*.h5</span></code> that is then read by WEC-Sim. The OSWEC tutorial includes
-data from a WAMIT run, <code class="docutils literal notranslate"><span class="pre">oswec.out</span></code>, of the OSWEC geometry in the
-<code class="docutils literal notranslate"><span class="pre">$WECSIM/tutorials/rm3/hydroData/</span></code> directory. The OSWEC WAMIT <code class="docutils literal notranslate"><span class="pre">oswec.out</span></code>
-file and the BEMIO <code class="docutils literal notranslate"><span class="pre">bemio.m</span></code> script are then used to generate the
-<code class="docutils literal notranslate"><span class="pre">oswec.h5</span></code> file.</p>
+<a class="reference internal" href="advanced_features.html#user-advanced-features-bemio"><span class="std std-ref">BEMIO</span></a>. BEMIO converts hydrodynamic data from
+WAMIT, NEMOH or AQWA into a HDF5 file, <code class="docutils literal notranslate"><span class="pre">*.h5</span></code> that is then read by WEC-Sim.
+The OSWEC tutorial includes data from a WAMIT run, <code class="docutils literal notranslate"><span class="pre">oswec.out</span></code>, of the OSWEC
+geometry in the <code class="docutils literal notranslate"><span class="pre">$WECSIM/tutorials/rm3/hydroData/</span></code> directory. The OSWEC WAMIT
+<code class="docutils literal notranslate"><span class="pre">oswec.out</span></code> file and the BEMIO <code class="docutils literal notranslate"><span class="pre">bemio.m</span></code> script are then used to generate
+the <code class="docutils literal notranslate"><span class="pre">oswec.h5</span></code> file.</p>
 <p>This is done by navigating to the <code class="docutils literal notranslate"><span class="pre">$WECSIM/tutorials/oswec/hydroData/</span></code>
 directory, and typing``bemio`` in the MATLAB Command Window:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">bemio</span>

@@ -241,7 +241,7 @@ reading the documentation on the feature.</p>
 <a class="reference internal image-reference" href="../_images/codeFeatures.png"><img alt="../_images/codeFeatures.png" src="../_images/codeFeatures.png" style="width: 400pt;" /></a>
 </div>
 <div class="section" id="bemio">
-<span id="id1"></span><h2>BEMIO<a class="headerlink" href="#bemio" title="Permalink to this headline">¶</a></h2>
+<span id="user-advanced-features-bemio"></span><h2>BEMIO<a class="headerlink" href="#bemio" title="Permalink to this headline">¶</a></h2>
 <p>The Boundary Element Method Input/Output (BEMIO) functions are used to
 pre-process the BEM hydrodynamic data prior to running WEC-Sim. For more
 information about the WEC-Sim workflow, refer to
@@ -630,7 +630,7 @@ Then the functions provided are used to create and populate the <code class="doc
 more information about the simulation class code structure, refer to
 <a class="reference internal" href="code_structure.html#user-code-structure-simulation-class"><span class="std std-ref">Simulation Class</span></a>.</p>
 <div class="section" id="multiple-condition-runs-mcr">
-<span id="mcr"></span><h3>Multiple Condition Runs (MCR)<a class="headerlink" href="#multiple-condition-runs-mcr" title="Permalink to this headline">¶</a></h3>
+<span id="user-advanced-features-mcr"></span><h3>Multiple Condition Runs (MCR)<a class="headerlink" href="#multiple-condition-runs-mcr" title="Permalink to this headline">¶</a></h3>
 <p>WEC-Sim allows users to easily perform batch runs by typing <code class="docutils literal notranslate"><span class="pre">wecSimMCR</span></code> into
 the MATLAB Command Window. This command executes the Multiple Condition Run
 (MCR) option, which can be initiated three different ways:</p>
@@ -662,13 +662,13 @@ been run.</p>
 <p>For more information, refer to <a class="reference internal" href="../welcome/webinars.html#webinar1"><span class="std std-ref">Webinar 1 - BEMIO and MCR</span></a>,</p>
 </div>
 <div class="section" id="parallel-computing-toolbox-pct">
-<span id="pct"></span><h3>Parallel Computing Toolbox (PCT)<a class="headerlink" href="#parallel-computing-toolbox-pct" title="Permalink to this headline">¶</a></h3>
+<span id="user-advanced-features-pct"></span><h3>Parallel Computing Toolbox (PCT)<a class="headerlink" href="#parallel-computing-toolbox-pct" title="Permalink to this headline">¶</a></h3>
 <p>WEC-Sim allows users to execute batch runs by typing <code class="docutils literal notranslate"><span class="pre">wecSimPCT</span></code> into the
 MATLAB Command Window. This command executes the MATLAB <a class="reference external" href="https://www.mathworks.com/products/parallel-computing.html">Parallel Computing
 Toolbox</a> (PCT),
-which allows parallel capability for <a class="reference internal" href="#mcr"><span class="std std-ref">Multiple Condition Runs (MCR)</span></a> but adds an additional MATLAB
-dependency to use this feature. Similar to MCR, this feature can be executed in
-three ways (Options 1~3).</p>
+which allows parallel capability for <a class="reference internal" href="#user-advanced-features-mcr"><span class="std std-ref">Multiple Condition Runs (MCR)</span></a> but adds
+an additional MATLAB dependency to use this feature. Similar to MCR, this
+feature can be executed in three ways (Options 1~3).</p>
 <p>For PCT runs, the <code class="docutils literal notranslate"><span class="pre">*.h5</span></code> hydrodynamic data must be reload, regardless the
 setting for <code class="docutils literal notranslate"><span class="pre">simu.reloadH5Data</span></code> in the WEC-Sim input file.</p>
 <div class="admonition note">
@@ -792,7 +792,7 @@ Cosine-Squared and Cosine-2s.</p>
 </div>
 </div>
 <div class="section" id="irregular-waves-with-seeded-phase">
-<span id="seeded-phase"></span><h3>Irregular Waves with Seeded Phase<a class="headerlink" href="#irregular-waves-with-seeded-phase" title="Permalink to this headline">¶</a></h3>
+<span id="user-advanced-features-seeded-phase"></span><h3>Irregular Waves with Seeded Phase<a class="headerlink" href="#irregular-waves-with-seeded-phase" title="Permalink to this headline">¶</a></h3>
 <p>By default, the phase for all irregular wave cases are generated randomly. In
 order to reproduce the same time-series every time an irregular wave simulation
 is run, the following wave class variable may be defined in the WEC-Sim input
@@ -850,7 +850,7 @@ can then visualize the geometry using the <code class="code docutils literal not
 </ul>
 </div>
 <div class="section" id="nonlinear-buoyancy-and-froude-krylov-excitation">
-<span id="nonlinear"></span><h3>Nonlinear Buoyancy and Froude-Krylov Excitation<a class="headerlink" href="#nonlinear-buoyancy-and-froude-krylov-excitation" title="Permalink to this headline">¶</a></h3>
+<span id="user-advanced-features-nonlinear"></span><h3>Nonlinear Buoyancy and Froude-Krylov Excitation<a class="headerlink" href="#nonlinear-buoyancy-and-froude-krylov-excitation" title="Permalink to this headline">¶</a></h3>
 <p>WEC-Sim has the option to include the nonlinear hydrostatic restoring and
 Froude-Krylov forces when solving the system dynamics of WECs, accounting for
 the weakly nonlinear effect on the body hydrodynamics. To use nonlinear
@@ -940,19 +940,19 @@ propagation and normal directions, respectively . The ellipsoid is at its
 equilibrium position with its origin located at the mean water surface. The
 mass of the body is then set to 1.342×105 kg, and the center of gravity is
 located 2 m below the origin.</p>
-<div class="figure align-center" id="nonlinearellipsoid">
+<div class="figure align-center" id="user-advanced-features-nonlinearellipsoid">
 <a class="reference internal image-reference" href="../_images/nonlinearEllipsoid.png"><img alt="../_images/nonlinearEllipsoid.png" src="../_images/nonlinearEllipsoid.png" style="width: 350pt;" /></a>
 </div>
 <p>STL file with the discretized body surface is shown below (<code class="docutils literal notranslate"><span class="pre">ellipsoid.stl</span></code>)</p>
-<div class="figure align-center" id="nonlinearmesh">
+<div class="figure align-center" id="user-advanced-features-nonlinearmesh">
 <a class="reference internal image-reference" href="../_images/nonlinearMesh.png"><img alt="../_images/nonlinearMesh.png" src="../_images/nonlinearMesh.png" style="width: 250pt;" /></a>
 </div>
 <p>The single-body heave only WEC model is shown below (<code class="docutils literal notranslate"><span class="pre">nonLinearHydro.slx</span></code>)</p>
-<div class="figure align-center" id="nonlinearwec">
+<div class="figure align-center" id="user-advanced-features-nonlinearwec">
 <a class="reference internal image-reference" href="../_images/nonlinearWEC.png"><img alt="../_images/nonlinearWEC.png" src="../_images/nonlinearWEC.png" style="width: 450pt;" /></a>
 </div>
 <p>The WEC-Sim input file used to run the nonlinear hydro WEC-Sim simulation:</p>
-<div class="highlight-matlab notranslate" id="nonlinearwecsiminputfile"><div class="highlight"><pre><span></span><span class="c">%% Simulation Data</span>
+<div class="highlight-matlab notranslate" id="user-advanced-features-nonlinearwecsiminputfile"><div class="highlight"><pre><span></span><span class="c">%% Simulation Data</span>
 <span class="n">simu</span> <span class="p">=</span> <span class="n">simulationClass</span><span class="p">();</span>               
 <span class="n">simu</span><span class="p">.</span><span class="n">simMechanicsFile</span> <span class="p">=</span> <span class="s">&#39;ellipsoid.slx&#39;</span><span class="p">;</span>   
 <span class="n">simu</span><span class="p">.</span><span class="n">mode</span> <span class="p">=</span> <span class="s">&#39;normal&#39;</span><span class="p">;</span>                   <span class="c">% Specify Simulation Mode (&#39;normal&#39;,&#39;accelerator&#39;,&#39;rapid-accelerator&#39;)</span>
@@ -1024,7 +1024,7 @@ input file (each of which have a default value of zero):</p>
 </div>
 </div>
 <div class="section" id="morison-elements">
-<span id="morison"></span><h4>Morison Elements<a class="headerlink" href="#morison-elements" title="Permalink to this headline">¶</a></h4>
+<span id="user-advanced-features-morison"></span><h4>Morison Elements<a class="headerlink" href="#morison-elements" title="Permalink to this headline">¶</a></h4>
 <p>To use Morison Elements, the following simulation class variable must be
 defined in the WEC-Sim input file with <code class="code docutils literal notranslate"><span class="pre">simu.morisonElement</span> <span class="pre">=</span> <span class="pre">1</span></code> or
 <code class="code docutils literal notranslate"><span class="pre">simu.morisonElement</span> <span class="pre">=</span> <span class="pre">2</span></code></p>
@@ -1654,7 +1654,7 @@ mooring matrix properties in the WEC-Sim input file using:</p>
 </ul>
 </div>
 <div class="section" id="moordyn">
-<h3>MoorDyn<a class="headerlink" href="#moordyn" title="Permalink to this headline">¶</a></h3>
+<span id="mooring-moordyn"></span><h3>MoorDyn<a class="headerlink" href="#moordyn" title="Permalink to this headline">¶</a></h3>
 <p>When the MoorDyn block is used, the user needs to initiate the mooring class by
 setting <code class="code docutils literal notranslate"><span class="pre">mooring</span> <span class="pre">=</span> <span class="pre">mooringClass('mooring</span> <span class="pre">name')</span></code> in the WEC-Sim input
 file (wecSimInputFile.m), followed by the number of mooring lines that are
@@ -1733,7 +1733,7 @@ initiate the mooring class and define the number of mooring lines.</li>
 <li><strong>MoorDyn Input File</strong>: A mooring folder that includes a moorDyn input file
 (<code class="docutils literal notranslate"><span class="pre">lines.txt</span></code>) is created. The moorDyn input file (<code class="docutils literal notranslate"><span class="pre">lines.txt</span></code>) is shown
 in the figure below. More details on how to setup the MooDyn input file are
-described in the MoorDyn User Guide <a class="reference internal" href="../theory/theory.html#hall2015moordynguide" id="id13">[B16]</a>.</li>
+described in the MoorDyn User Guide <a class="reference internal" href="../theory/theory.html#hall2015moordynguide" id="id12">[B16]</a>.</li>
 </ul>
 <div class="figure align-center" id="moordyninput">
 <a class="reference internal image-reference" href="../_images/moorDynInput.png"><img alt="../_images/moorDynInput.png" src="../_images/moorDynInput.png" style="width: 400pt;" /></a>
