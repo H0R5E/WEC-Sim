@@ -699,13 +699,13 @@ frame or relative to other bodies.</p>
 <dl class="method">
 <dt id="objects.ptoClass.checkLoc">
 <code class="descname">checkLoc</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#objects.ptoClass.checkLoc" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method checks WEC-Sim user inputs and generate an error message if the constraint location is not defined in constraintClass.</p>
+<dd><p>This method checks WEC-Sim user inputs and generate an error message if the PTO location is not defined in ptoClass.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="objects.ptoClass.setOrientation">
 <code class="descname">setOrientation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ptoClass.setOrientation" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method calculates the constraint <code class="docutils literal notranslate"><span class="pre">x</span></code> vector and <code class="docutils literal notranslate"><span class="pre">rotationMatrix</span></code> matrix in the <code class="docutils literal notranslate"><span class="pre">orientation</span></code> structure based on user input.</p>
+<dd><p>This method calculates the PTO <code class="docutils literal notranslate"><span class="pre">x</span></code> vector and <code class="docutils literal notranslate"><span class="pre">rotationMatrix</span></code> matrix in the <code class="docutils literal notranslate"><span class="pre">orientation</span></code> structure based on user input.</p>
 </dd></dl>
 
 <dl class="method">
@@ -719,7 +719,7 @@ frame or relative to other bodies.</p>
 <code class="descname">setInitDisp</code><span class="sig-paren">(</span><em>x_rot</em>, <em>ax_rot</em>, <em>ang_rot</em>, <em>addLinDisp</em><span class="sig-paren">)</span><a class="headerlink" href="#objects.ptoClass.setInitDisp" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method sets initial displacement while considering an initial rotation orientation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">x_rot</span></code> (<cite>3x1 float vector</cite>) is rotation point [m] in the following format [x y z], Default = <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ax_rot</span></code> (<cite>3x1 float vector</cite>) is the axis about which to rotate to constraint and must be a normal vector, Default = <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ax_rot</span></code> (<cite>3x1 float vector</cite>) is the axis about which to rotate the PTO and must be a normal vector, Default = <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ang_rot</span></code> (<cite>float</cite>) is the rotation angle [rad], Default = <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">addLinDisp</span></code> (‘float’) is the initial linear displacement [m] in addition to the displacement caused by the pto rotation, Default = ‘[]’.</p>
 </dd></dl>
@@ -1073,7 +1073,7 @@ in the <code class="docutils literal notranslate"><span class="pre">wecSimInputF
 <dl class="attribute">
 <dt id="objects.simulationClass.nlHydro">
 <code class="descname">nlHydro</code><em class="property"> = '0'</em><a class="headerlink" href="#objects.simulationClass.nlHydro" title="Permalink to this definition">¶</a></dt>
-<dd><p>(<cite>integer</cite>) Option for nonlinear hydrohanamics calculation: linear-&gt;0, nonlinear-&gt;1. Default = <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<dd><p>(<cite>integer</cite>) Option for nonlinear hydrohanamics calculation: linear-&gt;0, nonlinear-&gt;1,2. Default = <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </dd></dl>
 
 <dl class="attribute">
