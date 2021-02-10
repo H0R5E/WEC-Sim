@@ -267,9 +267,9 @@ attributes that are passed to the other classes are shown here.</p>
 <a class="reference internal image-reference" href="../_images/simulation_diagram.png"><img alt="../_images/simulation_diagram.png" src="../_images/simulation_diagram.png" style="width: 100%;" /></a>
 </div>
 <p>The simulation class file, <code class="docutils literal notranslate"><span class="pre">simulationClass.m</span></code>, is located in the
-<code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory. Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users must initialize the simulation
-class (<code class="docutils literal notranslate"><span class="pre">simulationClass</span></code>) and specify the name of the WEC-Sim (<code class="docutils literal notranslate"><span class="pre">*.slx</span></code>)
-model file by including the following lines:</p>
+<code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory. Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users
+must initialize the simulation class (<code class="docutils literal notranslate"><span class="pre">simulationClass</span></code>) and specify the name
+of the WEC-Sim (<code class="docutils literal notranslate"><span class="pre">*.slx</span></code>) model file by including the following lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">simu</span><span class="o">=</span><span class="n">simulationClass</span><span class="p">();</span>
 <span class="n">simu</span><span class="o">.</span><span class="n">simMechanicsFile</span><span class="o">=</span><span class="s1">&#39;&lt;WEC Model Name&gt;.slx&#39;</span>
 </pre></div>
@@ -303,12 +303,12 @@ the diagram below. The most common flags and attributes that are passed to the
 other classes are shown here. The wave primarily interacts with the body class
 through Simulink as described in the sections below.</p>
 <div class="figure">
-<a class="reference internal image-reference" href="_static/images/new_figs/wave_diagram.png"><img alt="_static/images/new_figs/wave_diagram.png" src="_static/images/new_figs/wave_diagram.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../_images/wave_diagram.PNG"><img alt="../_images/wave_diagram.PNG" src="../_images/wave_diagram.PNG" style="width: 100%;" /></a>
 </div>
 <p>The wave class file, <code class="docutils literal notranslate"><span class="pre">waveClass.m</span></code>, is located in the
-<code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory. Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users must initialize
-the wave class (<code class="docutils literal notranslate"><span class="pre">waveClass</span></code>) and specify the wave <code class="docutils literal notranslate"><span class="pre">type</span></code> by including the
-following lines:</p>
+<code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory. Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users
+must initialize the wave class (<code class="docutils literal notranslate"><span class="pre">waveClass</span></code>) and specify the wave <code class="docutils literal notranslate"><span class="pre">type</span></code> by
+including the following lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">waves</span> <span class="o">=</span> <span class="n">waveClass</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -492,16 +492,15 @@ uses the hydrodynamic data and wave class to calculate all relevant forces on
 the body and solve for its resultant motion. At a high level, the body class
 interacts with the rest of WEC-Sim as shown in the diagram below.</p>
 <div class="figure">
-<a class="reference internal image-reference" href="_static/images/new_figs/body_diagram.png"><img alt="_static/images/new_figs/body_diagram.png" src="_static/images/new_figs/body_diagram.png" style="width: 750pt;" /></a>
+<a class="reference internal image-reference" href="../_images/body_diagram.PNG"><img alt="../_images/body_diagram.PNG" src="../_images/body_diagram.PNG" style="width: 750pt;" /></a>
 </div>
 <p>The body class file, <code class="docutils literal notranslate"><span class="pre">bodyClass.m</span></code>, is located in the
-<code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory.
-Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users must initialize each iteration of the
-body class (<code class="docutils literal notranslate"><span class="pre">bodyClass</span></code>), and specify the location of the hydrodynamic data
-file (<code class="docutils literal notranslate"><span class="pre">*.h5</span></code>) and geometry file (<code class="docutils literal notranslate"><span class="pre">*.stl</span></code>) for each body. The body class is
-defined by including the following lines in the WEC-Sim input file, where # is
-the body number ‘&lt;bem_data&gt;.h5’ is the name of the h5 file containing the BEM
-results:</p>
+<code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory. Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>,
+users must initialize each iteration of the body class (<code class="docutils literal notranslate"><span class="pre">bodyClass</span></code>), and
+specify the location of the hydrodynamic data file (<code class="docutils literal notranslate"><span class="pre">*.h5</span></code>) and geometry
+file (<code class="docutils literal notranslate"><span class="pre">*.stl</span></code>) for each body. The body class is defined by including the
+following lines in the WEC-Sim input file, where # is the body number
+‘&lt;bem_data&gt;.h5’ is the name of the h5 file containing the BEM results:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">body</span><span class="p">(</span><span class="o">&lt;</span><span class="c1">#&gt;)=bodyClass(&#39;&lt;bem_data&gt;.h5&#39;)</span>
 <span class="n">body</span><span class="p">(</span><span class="o">&lt;</span><span class="c1">#&gt;).geometryFile = &#39;&lt;geom&gt;.stl&#39;;</span>
 </pre></div>
@@ -514,11 +513,12 @@ each body in the <code class="docutils literal notranslate"><span class="pre">we
 <li>Drag body</li>
 <li>Nonhydrodynamic body</li>
 </ul>
-<p>Each type of body requires various parameters and input BEM data. The <a class="reference internal" href="advanced_features.html#user-advanced-features-body"><span class="std std-ref">Body Features</span></a> section contains more details on these important distinctions.
-Regardless of type, body class properties need to include the
-mass (<code class="docutils literal notranslate"><span class="pre">body(#).mass</span></code>) and moment of inertia (<code class="docutils literal notranslate"><span class="pre">body(#).momOfInertia</span></code>).
-Other parameters are specified as needed.
-For example, viscous drag can be specified by entering the viscous drag coefficient
+<p>Each type of body requires various parameters and input BEM data. The
+<a class="reference internal" href="advanced_features.html#user-advanced-features-body"><span class="std std-ref">Body Features</span></a> section contains more details on these
+important distinctions. Regardless of type, body class properties need to
+include the mass (<code class="docutils literal notranslate"><span class="pre">body(#).mass</span></code>) and moment of inertia
+(<code class="docutils literal notranslate"><span class="pre">body(#).momOfInertia</span></code>). Other parameters are specified as needed. For
+example, viscous drag can be specified by entering the viscous drag coefficient
 and the characteristic area in vector format the WEC-Sim input file as
 follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">body</span><span class="p">(</span><span class="o">&lt;</span><span class="c1">#&gt;).viscDrag.cd = [0 0 1.3 0 0 0]</span>
@@ -534,12 +534,15 @@ Matlab Command Window.</p>
 </div>
 <div class="section" id="constraint-class">
 <span id="user-code-structure-constraint-class"></span><h3>Constraint Class<a class="headerlink" href="#constraint-class" title="Permalink to this headline">¶</a></h3>
-<p>The WEC-Sim constraint class and blocks connect WEC bodies to one another (and possibly to the seabed) by constraining DOFs.
-Constraint objects do not apply any force or resistance to body motion outside of the reactive force required to prevent motion in a given DOF.
-At a high level, the constraint class interacts with the rest of WEC-Sim as shown in the diagram below.
-Constraint objects largely interact with other blocks through Simscape connections that pass resistive forces to other bodies, constraints, ptos, etc.</p>
+<p>The WEC-Sim constraint class and blocks connect WEC bodies to one another (and
+possibly to the seabed) by constraining DOFs. Constraint objects do not apply
+any force or resistance to body motion outside of the reactive force required
+to prevent motion in a given DOF. At a high level, the constraint class
+interacts with the rest of WEC-Sim as shown in the diagram below. Constraint
+objects largely interact with other blocks through Simscape connections that
+pass resistive forces to other bodies, constraints, ptos, etc.</p>
 <div class="figure">
-<a class="reference internal image-reference" href="_static/images/new_figs/constraint_diagram.png"><img alt="_static/images/new_figs/constraint_diagram.png" src="_static/images/new_figs/constraint_diagram.png" style="width: 750pt;" /></a>
+<a class="reference internal image-reference" href="../_images/constraint_diagram.PNG"><img alt="../_images/constraint_diagram.PNG" src="../_images/constraint_diagram.PNG" style="width: 750pt;" /></a>
 </div>
 <p>The constraint class file, <code class="docutils literal notranslate"><span class="pre">constraintClass.m</span></code>, is located in the
 <code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory. The
@@ -562,14 +565,16 @@ typing <code class="docutils literal notranslate"><span class="pre">doc</span> <
 </div>
 <div class="section" id="pto-class">
 <span id="user-code-structure-pto-class"></span><h3>PTO Class<a class="headerlink" href="#pto-class" title="Permalink to this headline">¶</a></h3>
-<p>WEC-Sim Power Take-Off (PTO) blocks
-connect WEC bodies to one other (and possibly to the seabed) by constraining
-DOFs and applying linear damping and stiffness.
-The ability to apply damping, stiffness, or other external forcing differentiates a <cite>PTO</cite> from a <cite>Constraint</cite>.</p>
-<p>At a high level, the PTO class interacts with the rest of WEC-Sim as shown in the diagram below.
-PTO objects largely interact with other blocks through Simscape connections that pass resistive forces to other bodies, constraints, ptos, etc.</p>
+<p>WEC-Sim Power Take-Off (PTO) blocks connect WEC bodies to one other (and
+possibly to the seabed) by constraining DOFs and applying linear damping and
+stiffness. The ability to apply damping, stiffness, or other external forcing
+differentiates a <cite>PTO</cite> from a <cite>Constraint</cite>.</p>
+<p>At a high level, the PTO class interacts with the rest of WEC-Sim as shown in
+the diagram below. PTO objects largely interact with other blocks through
+Simscape connections that pass resistive forces to other bodies, constraints,
+ptos, etc.</p>
 <div class="figure">
-<a class="reference internal image-reference" href="_static/images/new_figs/pto_diagram.png"><img alt="_static/images/new_figs/pto_diagram.png" src="_static/images/new_figs/pto_diagram.png" style="width: 750pt;" /></a>
+<a class="reference internal image-reference" href="../_images/pto_diagram.PNG"><img alt="../_images/pto_diagram.PNG" src="../_images/pto_diagram.PNG" style="width: 750pt;" /></a>
 </div>
 <p>The pto class file, <code class="docutils literal notranslate"><span class="pre">ptoClass.m</span></code>, is located in the
 <code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory.  The pto class (<code class="docutils literal notranslate"><span class="pre">ptoClass</span></code>)
@@ -601,13 +606,15 @@ Command Window.</p>
 </div>
 <div class="section" id="mooring-class">
 <span id="user-code-structure-mooring-class"></span><h3>Mooring Class<a class="headerlink" href="#mooring-class" title="Permalink to this headline">¶</a></h3>
-<p>The mooring class (<code class="docutils literal notranslate"><span class="pre">mooringClass</span></code>) allows for different fidelity simulations of mooring systems.
-Two possibilities are available, a lumped mooring matrix or MoorDyn.
-These differences are determined by the Simulink block chosen, and are described below.
-At a high level, the Mooring class interacts with the rest of WEC-Sim as shown in the diagram below.
-The interaction is similar to a constraint or PTO, where some resistive forcing is calculated and passed to a body block through a Simscape connection.</p>
+<p>The mooring class (<code class="docutils literal notranslate"><span class="pre">mooringClass</span></code>) allows for different fidelity simulations
+of mooring systems. Two possibilities are available, a lumped mooring matrix or
+MoorDyn. These differences are determined by the Simulink block chosen, and are
+described below. At a high level, the Mooring class interacts with the rest of
+WEC-Sim as shown in the diagram below. The interaction is similar to a
+constraint or PTO, where some resistive forcing is calculated and passed to a
+body block through a Simscape connection.</p>
 <div class="figure">
-<a class="reference internal image-reference" href="_static/images/new_figs/mooring_diagram.png"><img alt="_static/images/new_figs/mooring_diagram.png" src="_static/images/new_figs/mooring_diagram.png" style="width: 750pt;" /></a>
+<a class="reference internal image-reference" href="../_images/mooring_diagram.PNG"><img alt="../_images/mooring_diagram.PNG" src="../_images/mooring_diagram.PNG" style="width: 750pt;" /></a>
 </div>
 <p>The mooring class file, <cite>mooringClass.m`</cite>, is located in the
 <code class="docutils literal notranslate"><span class="pre">$WECSIM/source/objects</span></code> directory. The properties of the mooring class
@@ -626,11 +633,12 @@ typing <code class="docutils literal notranslate"><span class="pre">open</span> 
 </div>
 <div class="section" id="response-class">
 <span id="user-code-structure-response-class"></span><h3>Response Class<a class="headerlink" href="#response-class" title="Permalink to this headline">¶</a></h3>
-<p>The response class contains all the output time-series and methods to plot and interact with the results.
-It is not initialized by the user.
-Instead, it is created automatically at the end of a WEC-Sim simulation.
-The response class does not input any parameter back to WEC-Sim, only taking output data from the various objects and blocks.
-The available parameters are explained in the <a class="reference internal" href="#user-code-structure-output"><span class="std std-ref">Output Structure</span></a> section.</p>
+<p>The response class contains all the output time-series and methods to plot and
+interact with the results. It is not initialized by the user. Instead, it is
+created automatically at the end of a WEC-Sim simulation. The response class
+does not input any parameter back to WEC-Sim, only taking output data from the
+various objects and blocks. The available parameters are explained in the
+<a class="reference internal" href="#user-code-structure-output"><span class="std std-ref">Output Structure</span></a> section.</p>
 </div>
 </div>
 <div class="section" id="wec-sim-library">
@@ -638,9 +646,9 @@ The available parameters are explained in the <a class="reference internal" href
 <p>In addition to the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, a WEC-Sim simulation requires a
 simulink model (<code class="docutils literal notranslate"><span class="pre">*.slx</span></code>) that represents the WEC system components and
 connectivities. Similar to how the input file uses the WEC-Sim classes, the
-Simulink model uses WEC-Sim library blocks. There should be a one-to-one relationship
-between the objects defined in the input file and the blocks used in the
-Simulink model.</p>
+Simulink model uses WEC-Sim library blocks. There should be a one-to-one
+relationship between the objects defined in the input file and the blocks used
+in the Simulink model.</p>
 <p>The WEC-Sim library is divided into 5 different types of library blocks. The
 user should be able to model their WEC device using the available WEC-Sim
 blocks (and possibly other Simulink/Simscape blocks). The image below shows the
@@ -659,20 +667,23 @@ can be used to restrict the relative motion between multi-body systems. The
 Mooring library contains blocks used to simulate mooring systems.</p>
 <div class="section" id="body-elements">
 <h3>Body Elements<a class="headerlink" href="#body-elements" title="Permalink to this headline">¶</a></h3>
-<p>The Body Elements library shown below contains four body types in two blocks: the <code class="docutils literal notranslate"><span class="pre">Rigid</span> <span class="pre">Body</span></code>
-block and the <code class="docutils literal notranslate"><span class="pre">Flex</span> <span class="pre">Body</span></code> block.
-The rigid body block is used to represent hydrodynamic, nonhydrodynamic, and drag bodies.
-Each type of rigid body is a <a class="reference external" href="https://www.mathworks.com/help/simulink/slref/variant-subsystems.html">Variant Sub-system</a>.
-Before simulation, one variant is activated by a flag in the body object (body.nhBody=0,1,2).
-The flex body block is used to represent hydrodynamic bodies that contain additional flexible degrees of freedom (‘generalized body modes’).
-The flex body is determined automatically by the degrees of freedom contained in the BEM input data.
-At least one instance of a hydrodynamic body block (rigid or flex) is required in each model.
-The <a class="reference internal" href="advanced_features.html#user-advanced-features-body"><span class="std std-ref">Body Features</span></a> section describes the various types of WEC-Sim bodies in detail.</p>
-<p>Both in Simulink and the input file, the user has to name the blocks <code class="docutils literal notranslate"><span class="pre">body(i)</span></code> (where i=1,2,…).
-The mass properties, hydrodynamic data, geometry file, mooring, and other properties are
-then specified in the input file. Within the body block, the wave radiation,
-wave excitation, hydrostatic restoring, viscous damping, and mooring forces are
-calculated.</p>
+<p>The Body Elements library shown below contains four body types in two blocks:
+the <code class="docutils literal notranslate"><span class="pre">Rigid</span> <span class="pre">Body</span></code> block and the <code class="docutils literal notranslate"><span class="pre">Flex</span> <span class="pre">Body</span></code> block. The rigid body block is
+used to represent hydrodynamic, nonhydrodynamic, and drag bodies. Each type of
+rigid body is a <a class="reference external" href="https://www.mathworks.com/help/simulink/slref/variant-subsystems.html">Variant Sub-system</a>.
+Before simulation, one variant is activated by a flag in the body object
+(body.nhBody=0,1,2). The flex body block is used to represent hydrodynamic
+bodies that contain additional flexible degrees of freedom (‘generalized body
+modes’). The flex body is determined automatically by the degrees of freedom
+contained in the BEM input data. At least one instance of a hydrodynamic body
+block (rigid or flex) is required in each model. The
+<a class="reference internal" href="advanced_features.html#user-advanced-features-body"><span class="std std-ref">Body Features</span></a> section describes the various types of
+WEC-Sim bodies in detail.</p>
+<p>Both in Simulink and the input file, the user has to name the blocks
+<code class="docutils literal notranslate"><span class="pre">body(i)</span></code> (where i=1,2,…). The mass properties, hydrodynamic data, geometry
+file, mooring, and other properties are then specified in the input file.
+Within the body block, the wave radiation, wave excitation, hydrostatic
+restoring, viscous damping, and mooring forces are calculated.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/WEC-Sim_Lib_bodies.PNG"><img alt="../_images/WEC-Sim_Lib_bodies.PNG" src="../_images/WEC-Sim_Lib_bodies.PNG" style="width: 400pt;" /></a>
 </div>
