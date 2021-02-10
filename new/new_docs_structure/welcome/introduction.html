@@ -177,28 +177,48 @@
             
   <div class="section" id="overview-of-wec-sim">
 <span id="welcome-intro"></span><h1>Overview of WEC-Sim<a class="headerlink" href="#overview-of-wec-sim" title="Permalink to this headline">¶</a></h1>
-<p>WEC-Sim (Wave Energy Converter SIMulator) is an open-source code for simulating wave energy converters.
-The code is developed in MATLAB/SIMULINK using the multi-body dynamics solver Simscape Multibody.
-WEC-Sim has the ability to model devices that are comprised of hydrodynamic bodies, joints and constraints, power take-of systems, and mooring systems.
-Simulations are performed in the time-domain by solving the governing wave energy converter equations of motion in the 6
-rigid Cartesian degrees-of-freedom, plus any number of user-defined modes.
-As long as boundary element method data is available, a body may also move in any number of generalized body modes such as shear, torsion, or bending.</p>
+<p>WEC-Sim (Wave Energy Converter SIMulator) is an open-source code for simulating
+wave energy converters. The code is developed in MATLAB/SIMULINK using the
+multi-body dynamics solver Simscape Multibody. WEC-Sim has the ability to model
+devices that are comprised of hydrodynamic bodies, joints and constraints,
+power take-of systems, and mooring systems. Simulations are performed in the
+time-domain by solving the governing wave energy converter equations of motion
+in the 6 rigid Cartesian degrees-of-freedom, plus any number of user-defined
+modes. As long as boundary element method data is available, a body may also
+move in any number of generalized body modes such as shear, torsion, or
+bending.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="_static/images/new_figs/overview_diagram.jpg"><img alt="_static/images/new_figs/overview_diagram.jpg" src="_static/images/new_figs/overview_diagram.jpg" style="width: 750pt;" /></a>
 </div>
-<p>At a high level, the only external input that WEC-Sim requires is boundary element method data from codes such as WAMIT, AQWA, Capytaine, HAMS, etc.
-The boundary element method represents the hydrodynamic response of the device for a given wave frequency.
-WEC-Sim uses this data to simulate devices in the time-domain where they can be better coupled with controls, power take-off systems, and other external bodies and forcings.
-WEC-Sim outputs the motions, forces and power absorbed or lost in individual bodies, joints and PTOs.
-Output is readily available in MATLAB for custom post-processing or coupling with external tools such as the <a class="reference external" href="https://snl-waterpower.github.io/WecOptTool/">WecOptTool</a>.</p>
-<p>Several interfaces with Simulink are included that allow users to couple WEC-Sim with a wide variety of other models and scripts relevant to their devices.
-Complex power take-off systems and advanced control algorithms are just two examples of the advanced tools that can be coupled with WEC-Sim.</p>
+<p>At a high level, the only external input that WEC-Sim requires is boundary
+element method data from codes such as WAMIT, AQWA, Capytaine, HAMS, etc. The
+boundary element method represents the hydrodynamic response of the device for
+a given wave frequency. WEC-Sim uses this data to simulate devices in the
+time-domain where they can be better coupled with controls, power take-off
+systems, and other external bodies and forcings. WEC-Sim outputs the motions,
+forces and power absorbed or lost in individual bodies, joints and PTOs. Output
+is readily available in MATLAB for custom post-processing or coupling with
+external tools such as the <a class="reference external" href="https://snl-waterpower.github.io/WecOptTool/">WecOptTool</a>.</p>
+<p>Several interfaces with Simulink are included that allow users to couple
+WEC-Sim with a wide variety of other models and scripts relevant to their
+devices. Complex power take-off systems and advanced control algorithms are
+just two examples of the advanced tools that can be coupled with WEC-Sim.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/OSWEC_with_ptosim.JPG"><img alt="../_images/OSWEC_with_ptosim.JPG" src="../_images/OSWEC_with_ptosim.JPG" style="width: 750pt;" /></a>
 </div>
-<p>Together with PTO and control systems, WEC-Sim is able to model a wide variety of marine devices.
-The WEC-Sim Applications repository contains a wide variety of scenarios that WEC-Sim can model. This repository includes both demonstrations of WEC-Sim’s advanced features and applications of WEC-Sim to unique devices.</p>
-<p>WEC-Sim’s capabilities include the ability to model both nonlinear hydrodynamic effects (Froude-Krylov forces and hydrostatic stiffness) and nonhydrodynamic bodies, body-to-body interactions, mooring systems, passive yawing. WEC-Sim contains numerous numerical options and ability to perform highly customizable batch simulations. WEC-Sim can take in data from a variety of boundary element method codes using its BEMIO (BEM-in/out) functionality and can output paraview files for visualization. Some of its advanced features are highlighted in the figures below.</p>
+<p>Together with PTO and control systems, WEC-Sim is able to model a wide variety
+of marine devices. The WEC-Sim Applications repository contains a wide variety
+of scenarios that WEC-Sim can model. This repository includes both
+demonstrations of WEC-Sim’s advanced features and applications of WEC-Sim to
+unique devices.</p>
+<p>WEC-Sim’s capabilities include the ability to model both nonlinear hydrodynamic
+effects (Froude-Krylov forces and hydrostatic stiffness) and nonhydrodynamic
+bodies, body-to-body interactions, mooring systems, passive yawing. WEC-Sim
+contains numerous numerical options and ability to perform highly customizable
+batch simulations. WEC-Sim can take in data from a variety of boundary element
+method codes using its BEMIO (BEM-in/out) functionality and can output paraview
+files for visualization. Some of its advanced features are highlighted in the
+figures below.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="50%" />
@@ -209,31 +229,44 @@ The WEC-Sim Applications repository contains a wide variety of scenarios that WE
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td rowspan="3"><blockquote class="first">
-<div><a class="reference internal" href="../_images/nlhydro_comparison4.png"><img alt="nlh" class="align-middle" src="../_images/nlhydro_comparison4.png" style="width: 400pt; height: 175pt;" /></a></div></blockquote>
-<p class="last">Nonlinear hydrodynamics</p>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Nonlinear hydrodynamics:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="../_images/nlhydro_comparison4.png"><img alt="nlh" class="align-middle" src="../_images/nlhydro_comparison4.png" style="width: 400pt; height: 175pt;" /></a></div>
+</div>
+</div>
 </td>
-<td rowspan="3"><blockquote class="first">
-<div><a class="reference internal" href="../_images/numOpt_comparison.png"><img alt="num" class="align-middle" src="../_images/numOpt_comparison.png" style="width: 400pt; height: 175pt;" /></a></div></blockquote>
-<p class="last">Various numerical options</p>
-</td>
-</tr>
-<tr class="row-odd"></tr>
-<tr class="row-even"></tr>
-<tr class="row-odd"><td rowspan="3"><blockquote class="first">
-<div><a class="reference internal" href="../_images/b2b_comparison2.png"><img alt="b2b" class="align-middle" src="../_images/b2b_comparison2.png" style="width: 400pt; height: 175pt;" /></a></div></blockquote>
-<p class="last">Body-to-body interactions</p>
-</td>
-<td rowspan="3"><blockquote class="first">
-<div><a class="reference internal" href="../_images/passiveYaw_comparison.png"><img alt="yaw" class="align-middle" src="../_images/passiveYaw_comparison.png" style="width: 400pt; height: 175pt;" /></a></div></blockquote>
-<p class="last">Passive Yaw</p>
+<td><div class="first last line-block">
+<div class="line">Various numerical options:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="../_images/numOpt_comparison.png"><img alt="num" class="align-middle" src="../_images/numOpt_comparison.png" style="width: 400pt; height: 175pt;" /></a></div>
+</div>
+</div>
 </td>
 </tr>
-<tr class="row-even"></tr>
-<tr class="row-odd"></tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Body-to-body interactions:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="../_images/b2b_comparison2.png"><img alt="b2b" class="align-middle" src="../_images/b2b_comparison2.png" style="width: 400pt; height: 175pt;" /></a></div>
+</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Passive Yaw:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="../_images/passiveYaw_comparison.png"><img alt="yaw" class="align-middle" src="../_images/passiveYaw_comparison.png" style="width: 400pt; height: 175pt;" /></a></div>
+</div>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
-<p>The Paraview figures below highlight some of WEC-Sim’s capabilities and the various geometries that have been successfully modeled.</p>
+<p>The Paraview figures below highlight some of WEC-Sim’s capabilities and the
+various geometries that have been successfully modeled.</p>
 </div>
 
 

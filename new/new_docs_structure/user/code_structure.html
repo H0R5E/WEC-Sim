@@ -256,10 +256,13 @@ Command Window. The latter provides more information since it also defines the
 different fields in a structure.</p>
 <div class="section" id="simulation-class">
 <span id="user-code-structure-simulation-class"></span><h3>Simulation Class<a class="headerlink" href="#simulation-class" title="Permalink to this headline">¶</a></h3>
-<p>The simulation class contains the simulation parameters, flags and solver settings necessary to execute the WEC-Sim code.
-These simulation parameters include numerical settings such as the time step, start time, differential equation solver method, and flags for various output options and nonlinear hydrodynamics options.
-At a high level, the simulation class interacts with the rest of WEC-Sim as shown in the diagram below.
-The most common flags and attributes that are passed to the other classes are shown here.</p>
+<p>The simulation class contains the simulation parameters, flags and solver
+settings necessary to execute the WEC-Sim code. These simulation parameters
+include numerical settings such as the time step, start time, differential
+equation solver method, and flags for various output options and nonlinear
+hydrodynamics options. At a high level, the simulation class interacts with the
+rest of WEC-Sim as shown in the diagram below. The most common flags and
+attributes that are passed to the other classes are shown here.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/simulation_diagram.png"><img alt="../_images/simulation_diagram.png" src="../_images/simulation_diagram.png" style="width: 100%;" /></a>
 </div>
@@ -290,11 +293,15 @@ typing <code class="docutils literal notranslate"><span class="pre">doc</span> <
 </div>
 <div class="section" id="wave-class">
 <span id="user-code-structure-wave-class"></span><h3>Wave Class<a class="headerlink" href="#wave-class" title="Permalink to this headline">¶</a></h3>
-<p>The wave class contains all wave information necessary to define the incident wave condition for the WEC-Sim time-domain simulation.
-The wave class passes the incoming wave information to the body objects to determine the excitation force, added mass, radiation damping and other frequency based parameters that influence a body’s motion.</p>
-<p>At a high level, the wave class interacts with the rest of WEC-Sim as shown in the diagram below.
-The most common flags and attributes that are passed to the other classes are shown here.
-The wave primarily interacts with the body class through Simulink as described in the sections below.</p>
+<p>The wave class contains all wave information necessary to define the incident
+wave condition for the WEC-Sim time-domain simulation. The wave class passes
+the incoming wave information to the body objects to determine the excitation
+force, added mass, radiation damping and other frequency based parameters that
+influence a body’s motion.</p>
+<p>At a high level, the wave class interacts with the rest of WEC-Sim as shown in
+the diagram below. The most common flags and attributes that are passed to the
+other classes are shown here. The wave primarily interacts with the body class
+through Simulink as described in the sections below.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="_static/images/new_figs/wave_diagram.png"><img alt="_static/images/new_figs/wave_diagram.png" src="_static/images/new_figs/wave_diagram.png" style="width: 100%;" /></a>
 </div>
@@ -478,10 +485,12 @@ typing <code class="docutils literal notranslate"><span class="pre">doc</span> <
 </div>
 <div class="section" id="body-class">
 <span id="user-code-structure-body-class"></span><h3>Body Class<a class="headerlink" href="#body-class" title="Permalink to this headline">¶</a></h3>
-<p>The body class represents each rigid or flexible body that comprises the WEC being simulated.
-It contains the mass and hydrodynamic properties of each body, defined by hydrodynamic data from the <a href="#id1"><span class="problematic" id="id2">*</span></a>.h5 file.
-The corresponding body block uses the hydrodynamic data and wave class to calculate all relevant forces on the body and solve for its resultant motion.
-At a high level, the body class interacts with the rest of WEC-Sim as shown in the diagram below.</p>
+<p>The body class represents each rigid or flexible body that comprises the WEC
+being simulated. It contains the mass and hydrodynamic properties of each body,
+defined by hydrodynamic data from the *.h5 file. The corresponding body block
+uses the hydrodynamic data and wave class to calculate all relevant forces on
+the body and solve for its resultant motion. At a high level, the body class
+interacts with the rest of WEC-Sim as shown in the diagram below.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="_static/images/new_figs/body_diagram.png"><img alt="_static/images/new_figs/body_diagram.png" src="_static/images/new_figs/body_diagram.png" style="width: 750pt;" /></a>
 </div>
