@@ -296,14 +296,15 @@ consists of initializing all the objects necessary to run WEC-Sim simulations
 and defining any user specified properties for each object. Specifically, the
 input file requires initialization and definition of the simulation and wave
 classes, at least one instance of the body class, and at least one instance of
-the constraint or PTO classes. For details about WEC-Sim’s objects and
-available properties for each object, refer to the
-<a class="reference internal" href="code_structure.html#user-code-structure-objects"><span class="std std-ref">WEC-Sim Objects</span></a> section.</p>
+the constraint or PTO classes. For details about WEC-Sim’s classes and
+available properties for each, refer to the
+<a class="reference internal" href="code_structure.html#user-code-structure-classes"><span class="std std-ref">WEC-Sim Classes</span></a> section.</p>
 <p>An example WEC-Sim input file is shown below for the OSWEC. Additional examples
 are provided in the <a class="reference internal" href="tutorials.html#user-tutorials"><span class="std std-ref">Tutorials</span></a> section. WEC-Sim is an object
 oriented code and the input file reflects this by instantiating the WEC-Sim
 classes to create objects that are tied to the Simulink library.</p>
-<p>The WEC-Sim input file (<code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>) for the OSWEC initializes and
+<p>The WEC-Sim input file (<code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>) for the OSWEC example
+(<code class="docutils literal notranslate"><span class="pre">WEC-Sim/examples/OSWEC/</span></code>) initializes and
 specifies properties for the simulation, body, constraint and pto classes.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% Simulation Data</span>
 <span class="n">simu</span> <span class="p">=</span> <span class="n">simulationClass</span><span class="p">();</span>                       <span class="c">% Initialize simulationClass</span>
@@ -347,7 +348,7 @@ specifies properties for the simulation, body, constraint and pto classes.</p>
 </div>
 <div class="section" id="running-wec-sim">
 <span id="user-workflow-running-wec-sim"></span><h2>Running WEC-Sim<a class="headerlink" href="#running-wec-sim" title="Permalink to this headline">¶</a></h2>
-<p>This section provides a description of the steps to run the WEC-Sim code, refer
+<p>This section provides a description of the steps to run the WEC-Sim code. Refer
 to the <a class="reference internal" href="#user-workflow-chart"><span class="std std-ref">WEC-Sim Workflow Diagram</span></a> while following
 the steps to run WEC-Sim.</p>
 <div class="section" id="step-1-pre-processing">

@@ -1651,6 +1651,11 @@ mooring matrix properties in the WEC-Sim input file using:</p>
 <li>Mooring damping matrix - <code class="code docutils literal notranslate"><span class="pre">mooring(i).matrix.c</span> <span class="pre">=</span> <span class="pre">[6x6]</span></code> in [Ns/m]</li>
 <li>Mooring pretension - <code class="code docutils literal notranslate"><span class="pre">mooring(i).matrix.preTension</span> <span class="pre">=</span> <span class="pre">[1x6]</span></code> in [N]</li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">“i” indicates the mooring number. More than one mooring can be specified in
+the WEC-Sim model when the mooring matrix block is used.</p>
+</div>
 </div>
 <div class="section" id="moordyn">
 <span id="mooring-moordyn"></span><h3>MoorDyn<a class="headerlink" href="#moordyn" title="Permalink to this headline">¶</a></h3>
@@ -1660,6 +1665,11 @@ file (wecSimInputFile.m), followed by the number of mooring lines that are
 defined in MoorDyn (<code class="docutils literal notranslate"><span class="pre">mooring(1).moorDynLines</span> <span class="pre">=</span> <span class="pre">&lt;Number</span> <span class="pre">of</span> <span class="pre">mooring</span> <span class="pre">lines&gt;</span></code>)</p>
 <p>A mooring folder that includes a moorDyn input file (<code class="docutils literal notranslate"><span class="pre">lines.txt</span></code>) is required
 in the simulation folder.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">WEC-Sim/MoorDyn coupling only allows one mooring configuration in the
+simulation.</p>
+</div>
 <div class="section" id="rm3-with-moordyn">
 <span id="rm3-moordyn"></span><h4>RM3 with MoorDyn<a class="headerlink" href="#rm3-with-moordyn" title="Permalink to this headline">¶</a></h4>
 <p>This section describes how to simulate a mooring connected WEC system in
@@ -1929,7 +1939,7 @@ bodies, constraints, PTOs, and moorings. To do this, you would use the:</p>
 <li><code class="code docutils literal notranslate"><span class="pre">mooring(i).setInitDisp()</span></code></li>
 </ul>
 <p>methods in the WEC-Sim input file. A description of the required input can be
-found in the method’s header comments. The following propoerties must be
+found in the method’s header comments. The following properties must be
 defined prior to using the object’s <code class="code docutils literal notranslate"><span class="pre">setInitDisp()</span></code> method:</p>
 <ul class="simple">
 <li><code class="code docutils literal notranslate"><span class="pre">body(i).cg</span></code></li>
