@@ -299,7 +299,7 @@ Details on each are presented below.</p>
 <td><strong>Corresponding Library Block</strong></td>
 </tr>
 <tr class="row-even"><td>Body Class</td>
-<td>Body Elements (4 types)</td>
+<td>Body Elements (2 types)</td>
 </tr>
 <tr class="row-odd"><td>Constraint Class</td>
 <td>Constraints (5 types)</td>
@@ -337,6 +337,8 @@ time steps, global variables (gravity, density, etc).</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/simulation_diagram.png"><img alt="../_images/simulation_diagram.png" src="../_images/simulation_diagram.png" style="width: 100%;" /></a>
 </div>
+<div class="section" id="class-initialization">
+<h4>Class Initialization<a class="headerlink" href="#class-initialization" title="Permalink to this headline">¶</a></h4>
 <p>Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users
 must initialize the simulation class (<code class="docutils literal notranslate"><span class="pre">simulationClass</span></code>) and specify the name
 of the WEC-Sim (<code class="docutils literal notranslate"><span class="pre">*.slx</span></code>) model file by including the following lines:</p>
@@ -378,8 +380,9 @@ typing <code class="docutils literal notranslate"><span class="pre">doc</span> <
 <span class="pre">simulationClass</span></code> in MATLAB Command Window.</p>
 <p>For more information about application of WEC-Sim’s simulation class, refer to
 <a class="reference internal" href="advanced_features.html#user-advanced-features-simulation"><span class="std std-ref">Simulation Features</span></a>.</p>
-<div class="section" id="frames-block">
-<h4>Frames Block<a class="headerlink" href="#frames-block" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="library-blocks">
+<h4>Library Blocks<a class="headerlink" href="#library-blocks" title="Permalink to this headline">¶</a></h4>
 <p>The simulation class is most closely related to the Frames library.
 The Frames library contains one block that is necessary in every model. The
 <code class="docutils literal notranslate"><span class="pre">Global</span> <span class="pre">Reference</span> <span class="pre">Frame</span></code> block defines the global coordinates, solver
@@ -407,6 +410,8 @@ through during pre-processing of wave forces and in Simulink.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/wave_diagram.PNG"><img alt="../_images/wave_diagram.PNG" src="../_images/wave_diagram.PNG" style="width: 100%;" /></a>
 </div>
+<div class="section" id="id1">
+<h4>Class Initialization<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users
 must initialize the wave class (<code class="docutils literal notranslate"><span class="pre">waveClass</span></code>) and specify the wave <code class="docutils literal notranslate"><span class="pre">type</span></code> by
 including the following lines:</p>
@@ -449,6 +454,7 @@ sections.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="section" id="nowave">
 <h4>noWave<a class="headerlink" href="#nowave" title="Permalink to this headline">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">noWave</span></code> case is for running WEC-Sim simulations with no waves and
@@ -598,11 +604,13 @@ and motions to other Simulink blocks.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/body_diagram.PNG"><img alt="../_images/body_diagram.PNG" src="../_images/body_diagram.PNG" style="width: 750pt;" /></a>
 </div>
+<div class="section" id="id2">
+<h4>Class Initialization<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>,
 users must initialize each iteration of the body class (<code class="docutils literal notranslate"><span class="pre">bodyClass</span></code>), and
 specify the location of the hydrodynamic data file (<code class="docutils literal notranslate"><span class="pre">*.h5</span></code>) and geometry
 file (<code class="docutils literal notranslate"><span class="pre">*.stl</span></code>) for each body. The body class is defined by including the
-following lines in the WEC-Sim input file, where # is the body number
+following lines in the WEC-Sim input file, where # is the body number and
 ‘&lt;bem_data&gt;.h5’ is the name of the h5 file containing the BEM results:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">body</span><span class="p">(</span><span class="o">&lt;</span><span class="c1">#&gt;)=bodyClass(&#39;&lt;bem_data&gt;.h5&#39;)</span>
 <span class="n">body</span><span class="p">(</span><span class="o">&lt;</span><span class="c1">#&gt;).geometryFile = &#39;&lt;geom&gt;.stl&#39;;</span>
@@ -615,18 +623,56 @@ required that any drag body or nonhydrodyamic body be numbered after all
 hydrodynamic bodies The body index must correspond with the index in the
 <code class="docutils literal notranslate"><span class="pre">*.h5</span></code> file and the number in the Simulink diagram.</p>
 </div>
+<p>WEC-Sim bodies may be one of four types: hydrodynamic (default), flexible,
+drag, or nonhydrodynamic. These types represent varying degrees of complexity
+and require various input parameters and BEM data, detailed in the table below.
+The <a class="reference internal" href="advanced_features.html#user-advanced-features-body"><span class="std std-ref">Body Features</span></a> section contains more details on these
+important distinctions.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Body Type</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">Hydrodynamic</span> <span class="pre">Body</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;)=bodyClass('&lt;bem_data&gt;.h5')</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).mass</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).momOfInertia</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">Drag</span> <span class="pre">Body</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;)=bodyClass('')</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).mass</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).momOfInertia</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).cg</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).cb</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).dispVol</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).nhBody=1</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">Nonhydrodynamic</span> <span class="pre">Body</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;)=bodyClass('')</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).mass</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).momOfInertia</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).cg</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).cb</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).dispVol</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).nhBody=2</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">Flexible</span> <span class="pre">Body</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;)=bodyClass('&lt;bem_data&gt;.h5')</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).mass</span></code>
+<code class="docutils literal notranslate"><span class="pre">body(&lt;#&gt;).momOfInertia</span></code></td>
+</tr>
+</tbody>
+</table>
 <p>Users may specify other body class properties using the <code class="docutils literal notranslate"><span class="pre">body</span></code> object for
-each body in the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>. WEC-Sim bodies may be one of four types:</p>
-<ul class="simple">
-<li>Hydrodynamic body (default)</li>
-<li>Flexible hydrodynamic body</li>
-<li>Drag body</li>
-<li>Nonhydrodynamic body</li>
-</ul>
-<p>Each type of body requires various parameters and input BEM data. The
-<a class="reference internal" href="advanced_features.html#user-advanced-features-body"><span class="std std-ref">Body Features</span></a> section contains more details on these
-important distinctions. Body class properties include quantities such as
-the mass (<code class="docutils literal notranslate"><span class="pre">body(#).mass</span></code>) and moment of inertia (<code class="docutils literal notranslate"><span class="pre">body(#).momOfInertia</span></code>).
+each body in the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>.
+Important body class properties include quantities such as
+the mass, moment of inertia, center of gravity and center of buoyancy.
 Other parameters are specified as needed.
 For example, viscous drag can be specified by entering the viscous drag
 coefficient and the characteristic area in vector format the WEC-Sim
@@ -641,8 +687,9 @@ file in <code class="docutils literal notranslate"><span class="pre">$WECSIM/sou
 Matlab Command Window.</p>
 <p>For more information about application of WEC-Sim’s body class, refer to
 <a class="reference internal" href="advanced_features.html#user-advanced-features-body"><span class="std std-ref">Body Features</span></a>.</p>
-<div class="section" id="body-elements">
-<h4>Body Elements<a class="headerlink" href="#body-elements" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id3">
+<h4>Library Blocks<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>The Body Class is most closely associated with the Body Elements library.
 The Body Elements library shown below contains four body types in two blocks:
 the <code class="docutils literal notranslate"><span class="pre">Rigid</span> <span class="pre">Body</span></code> block and the <code class="docutils literal notranslate"><span class="pre">Flex</span> <span class="pre">Body</span></code> block. The rigid body block is
@@ -678,6 +725,8 @@ pass resistive forces to other bodies, constraints, ptos, etc.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/constraint_diagram.PNG"><img alt="../_images/constraint_diagram.PNG" src="../_images/constraint_diagram.PNG" style="width: 750pt;" /></a>
 </div>
+<div class="section" id="id4">
+<h4>Class Initialization<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <p>The
 properties of the constraint class (<code class="docutils literal notranslate"><span class="pre">constraintClass</span></code>) are defined in the
 <code class="docutils literal notranslate"><span class="pre">constraint</span></code> object. Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users must initialize
@@ -700,8 +749,9 @@ typing <code class="docutils literal notranslate"><span class="pre">doc</span> <
 <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">constraintClass</span></code> in MATLAB Command Window.</p>
 <p>For more information about application of WEC-Sim’s constraint class, refer to
 <a class="reference internal" href="advanced_features.html#user-advanced-features-pto"><span class="std std-ref">Constraint and PTO Features</span></a>.</p>
-<div class="section" id="constraints">
-<h4>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id5">
+<h4>Library Blocks<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>The Constraint Class is tied to the blocks within the Constraints library.
 These are used to define the DOF of a
 specific body. Constraint blocks define only the DOF, but do not otherwise
@@ -779,6 +829,8 @@ ptos, etc.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/pto_diagram.PNG"><img alt="../_images/pto_diagram.PNG" src="../_images/pto_diagram.PNG" style="width: 750pt;" /></a>
 </div>
+<div class="section" id="id6">
+<h4>Class Initialization<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <p>The properties of the PTO class (<code class="docutils literal notranslate"><span class="pre">ptoClass</span></code>) are
 defined in the <code class="docutils literal notranslate"><span class="pre">pto</span></code> object. Within the <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users must
 initialize each iteration the pto class (<code class="docutils literal notranslate"><span class="pre">ptoClass</span></code>) and specify the pto
@@ -803,8 +855,9 @@ in <code class="docutils literal notranslate"><span class="pre">$WECSIM/source/o
 Command Window.</p>
 <p>For more information about application of WEC-Sim’s constraint class, refer to
 <a class="reference internal" href="advanced_features.html#user-advanced-features-pto"><span class="std std-ref">Constraint and PTO Features</span></a>.</p>
-<div class="section" id="ptos">
-<h4>PTOs<a class="headerlink" href="#ptos" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id7">
+<h4>Library Blocks<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>The PTO Class is tied to the PTOs library.
 Similar to the Constraint blocks, the PTO blocks have a base (B) and
 a follower (F). Users must name each PTO block <code class="docutils literal notranslate"><span class="pre">pto(i)</span></code>
@@ -842,6 +895,8 @@ body block through a Simscape connection.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/mooring_diagram.PNG"><img alt="../_images/mooring_diagram.PNG" src="../_images/mooring_diagram.PNG" style="width: 750pt;" /></a>
 </div>
+<div class="section" id="id8">
+<h4>Class Initialization<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <p>The properties of the mooring class
 (<code class="docutils literal notranslate"><span class="pre">mooringClass</span></code>) are defined in the <code class="docutils literal notranslate"><span class="pre">mooring</span></code> object. Within the
 <code class="docutils literal notranslate"><span class="pre">wecSimInputFile.m</span></code>, users must initialize the mooring class and specify the
@@ -855,8 +910,9 @@ opening the <cite>mooringClass.m</cite> file in <code class="docutils literal no
 typing <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">mooringClass</span></code> in MATLAB Command Window.</p>
 <p>For more information about application of WEC-Sim’s mooring class, refer to
 <a class="reference internal" href="advanced_features.html#user-advanced-features-mooring"><span class="std std-ref">Mooring Features</span></a>.</p>
-<div class="section" id="mooring">
-<h4>Mooring<a class="headerlink" href="#mooring" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id9">
+<h4>Library Blocks<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <p>The Mooring Class is tied to the Mooring library.
 Two types of blocks may be used: a ‘Mooring Matrix’ or a ‘MoorDyn’ system.
 The <code class="docutils literal notranslate"><span class="pre">MooringMatrix</span></code> block applies linear damping and stiffness based on
