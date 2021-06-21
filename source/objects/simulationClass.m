@@ -115,7 +115,13 @@ classdef simulationClass<handle
                 'SimMechanicsOpenEditorOnUpdate',obj.explorer);
         end
 
-        function setupSim(obj)
+        function setupSim(obj, inputDir)
+            
+            arguments
+                obj
+                inputDir string = "."
+            end
+            
             % Sets simulation properties based on values specified in input file
             obj.time = obj.startTime:obj.dt:obj.endTime;
             obj.maxIt = floor((obj.endTime - obj.startTime) / obj.dt);
@@ -138,15 +144,18 @@ classdef simulationClass<handle
             obj.CTTime = 0:obj.dtCITime:obj.CITime;            
             obj.CIkt = length(obj.CTTime);
             obj.caseFile = [obj.simMechanicsFile(length(obj.caseDir)+1:end-4) '_matlabWorkspace.mat'];            
+            
             % Remove existing output folder
-            if exist(obj.outputDir,'dir') ~= 0
+            dir_path = fullfile(inputDir, obj.outputDir);
+            
+            if exist(dir_path,'dir') ~= 0
                 try
-                    rmdir(obj.outputDir,'s')
+                    rmdir(dir_path,'s')
                 catch
                     warning('The output directory could not be removed. Please close any files in the output directory and try running WEC-Sim again')
                 end
             end
-            mkdir(obj.outputDir)
+            mkdir(dir_path)
             obj.getGitCommit;
         end
 

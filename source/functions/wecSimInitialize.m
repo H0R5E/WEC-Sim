@@ -51,7 +51,8 @@ if exist('runWecSimCML','var') && runWecSimCML==1
     % wecSim input from wecSimInputFile.m of case directory in the standard manner
     fprintf('\nWEC-Sim Input From Standard wecSimInputFile.m Of Case Directory... \n');
     bdclose('all');
-    run('wecSimInputFile');
+    input_path = fullfile(inputDir, 'wecSimInputFile');
+    run(input_path);
 else
     % Get global reference frame parameters
     values = get_param([bdroot,'/Global Reference Frame'],'MaskValues');    % Cell array containing all Masked Parameter values
@@ -142,20 +143,21 @@ end
 simu.numWecBodies = numHydroBodies; clear numHydroBodies
 simu.numDragBodies = numDragBodies; clear numDragBodies
 for ii = 1:simu.numWecBodies
-    body(ii).checkinputs(simu.morisonElement);
+    body(ii).checkinputs(simu.morisonElement, inputDir);
     %Determine if hydro data needs to be reloaded from h5 file, or if hydroData
     % was stored in memory from a previous run.
     if exist('totalNumOfWorkers','var') ==0 && exist('mcr','var') == 1 && simu.reloadH5Data == 0 && imcr > 1
         body(ii).loadHydroData(hydroData(ii));
     else
         % check for correct h5 file
-        h5Info = dir(body(ii).h5File);
+        input_path = fullfile(inputDir, body(ii).h5File);
+        h5Info = dir(input_path);
         h5Info.bytes;
         if h5Info.bytes < 1000
             error(['This is not the correct *.h5 file. Please install git-lfs to access the correct *.h5 file, or run \hydroData\bemio.m to generate a new *.h5 file'])
         end
         clearvars h5Info
-        body(ii).readH5File;
+        body(ii).readH5File(inputDir);
     end
     body(ii).bodyTotal = simu.numWecBodies;
     if simu.b2b==1
@@ -185,7 +187,7 @@ end
 
 %% HydroForce Pre-Processing: Wave Setup & HydroForcePre.
 % simulation setup
-simu.setupSim;
+simu.setupSim(inputDir);
 
 % wave setup
 waves.waveSetup(body(1).hydroData.simulation_parameters.w, body(1).hydroData.simulation_parameters.water_depth, simu.rampTime, simu.dt, simu.maxIt, simu.g, simu.rho,  simu.endTime);
@@ -400,5 +402,6 @@ warning('off','sm:sli:setup:compile:SteadyStateStartNotSupported')
 set_param(0, 'ErrorIfLoadNewModel', 'off')
 % Load parameters to Simulink model
 simu.loadSimMechModel(simu.simMechanicsFile);
+simFile = simu.simMechanicsFile;
 
 toc

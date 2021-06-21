@@ -107,9 +107,15 @@ classdef bodyClass<handle
             obj.h5File = filename;
         end
         
-        function readH5File(obj)
+        function readH5File(obj, inputDir)
+            
+            arguments
+                obj
+                inputDir string = "."
+            end
+            
             % WECSim internal function that reads the body h5 file.
-            filename = obj.h5File;
+            filename = fullfile(inputDir, obj.h5File);
             name = ['/body' num2str(obj.bodyNumber)];
             obj.cg = h5read(filename,[name '/properties/cg']);
             obj.cg = obj.cg';
@@ -449,16 +455,30 @@ classdef bodyClass<handle
             quiver3(c(:,1),c(:,2),c(:,3),n(:,1),n(:,2),n(:,3))
         end
         
-        function checkinputs(obj,morisonElement)
+        function checkinputs(obj,morisonElement,inputDir)
+            
+            arguments
+                obj
+                morisonElement (1,1) int32 = 0
+                inputDir string = "."
+            end
+            
             % This method checks WEC-Sim user inputs and generates error messages if parameters are not properly defined for the bodyClass.
             % Check h5 file
-            if exist(obj.h5File,'file')==0 && obj.nhBody==0
+            h5_path = fullfile(inputDir, obj.h5File);
+            geometry_path = fullfile(inputDir, obj.geometryFile);
+            
+            if exist(h5_path,'file')==0 && obj.nhBody==0
                 error('The hdf5 file %s does not exist',obj.h5File)
             end
             % Check geometry file
-            if exist(obj.geometryFile,'file') == 0
+            if exist(geometry_path,'file') == 0
                 error('Could not locate and open geometry file %s',obj.geometryFile)
             end
+            
+            % Update geometry file path
+            obj.geometryFile = geometry_path;
+            
             % Check Morison Element Inputs for option 1
             if morisonElement == 1
                 [rgME,~] = size(obj.morisonElement.rgME);

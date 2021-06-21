@@ -34,15 +34,19 @@
 %% mooring(<mooring number>) = mooringClass('<Mooring name>');             - To initialize mooringClass (only needed when mooring blocks are used)
 %%
 
-% Initialize WEC-Sim
-run('wecSimInputFile');
-simFile = simu.simMechanicsFile;
-% clearvars -except simFile
-clear simu waves body pto constraint ptosim mooring 
+function wecSim(inputDir)
 
-runWecSimCML = 1;
-run('wecSimInitialize');
-sim(simFile, [], simset('SrcWorkspace','parent'));
+    arguments
+        inputDir string = "."
+    end
+
+    addpath(inputDir);
+    runWecSimCML = 1;
+    run('wecSimInitialize');
+    sim(simFile, [], simset('SrcWorkspace','current'));
+    rmpath(inputDir);
+    
+end
 
 % Post-processing called as the Global Reference Frame stop function 
 % in Simulink
