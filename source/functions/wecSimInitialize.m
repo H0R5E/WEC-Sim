@@ -51,8 +51,16 @@ if exist('runWecSimCML','var') && runWecSimCML==1
     % wecSim input from wecSimInputFile.m of case directory in the standard manner
     fprintf('\nWEC-Sim Input From Standard wecSimInputFile.m Of Case Directory... \n');
     bdclose('all');
-    input_path = fullfile(inputDir, 'wecSimInputFile');
-    run(input_path);
+    
+    inputPath = fullfile(inputDir, 'wecSimInputFile');
+    run(inputPath);
+    
+    % Copy var names in input file to base workspace
+    varNames = get_input_varnames(inputPath);
+    for k=1:length(varNames)
+        assignin('base',varNames{k},eval(varNames{k}))
+    end
+    
 else
     % Get global reference frame parameters
     values = get_param([bdroot,'/Global Reference Frame'],'MaskValues');    % Cell array containing all Masked Parameter values
@@ -405,3 +413,9 @@ simu.loadSimMechModel(simu.simMechanicsFile);
 simFile = simu.simMechanicsFile;
 
 toc
+
+function names = get_input_varnames(path)
+    run(path);
+    names = who();
+    names(strcmp(names,'path')) = [];
+end
