@@ -58,7 +58,7 @@ if exist('runWecSimCML','var') && runWecSimCML==1
     % Copy var names in input file to base workspace
     varNames = getVarNames(inputPath);
     for k=1:length(varNames)
-        assignin('base', varNames{k}, eval(varNames{k}))
+        assignin('caller', varNames{k}, eval(varNames{k}))
     end
     
 else
