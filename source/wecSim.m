@@ -44,7 +44,7 @@ function wecSim(inputDir)
     runWecSimCML = 1;
     run('wecSimInitialize');
     sim(simFile, [], simset('SrcWorkspace','current'));
-    assignin('base',"output",eval("output"))
+    assignin('base', "output", eval("output"))
     rmpath(inputDir);
     
 end

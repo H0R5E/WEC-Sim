@@ -56,9 +56,9 @@ if exist('runWecSimCML','var') && runWecSimCML==1
     run(inputPath);
     
     % Copy var names in input file to base workspace
-    varNames = get_input_varnames(inputPath);
+    varNames = getVarNames(inputPath);
     for k=1:length(varNames)
-        assignin('base',varNames{k},eval(varNames{k}))
+        assignin('base', varNames{k}, eval(varNames{k}))
     end
     
 else
@@ -414,8 +414,9 @@ simFile = simu.simMechanicsFile;
 
 toc
 
-function names = get_input_varnames(path)
+function names = getVarNames(path)
+    % Run the given path in an isolated workspace to collect variable names
     run(path);
     names = who();
-    names(strcmp(names,'path')) = [];
+    names(strcmp(names, 'path')) = [];
 end
