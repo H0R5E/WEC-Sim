@@ -417,6 +417,6 @@ toc
 function names = getVarNames(path)
     % Run the given path in an isolated workspace to collect variable names
     run(path);
+    clear path
     names = who();
-    names(strcmp(names, 'path')) = [];
 end
