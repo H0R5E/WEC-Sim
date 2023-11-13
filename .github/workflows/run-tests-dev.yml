@@ -5,7 +5,7 @@ on:
   workflow_dispatch: {}
   push:
     branches:
-      - solve_actions_issue
+      - dev
   pull_request:
     branches:
       - dev
@@ -18,13 +18,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # os: [ubuntu-latest, windows-latest]
-        # release: [R2020b, R2021a, R2021b, R2022a, R2022b, R2023a]
-        # include:
-        #   - os: ubuntu-latest
-        #     release: latest
-        os: [windows-latest]
-        release: [R2020b]
+        os: [ubuntu-latest, windows-latest]
+        release: [R2020b, R2021a, R2021b, R2022a, R2022b, R2023a]
+        exclude:
+          - os: windows-latest
+            release: R2020b
+          - os: windows-latest
+            release: R2021a
+        include:
+          - os: ubuntu-latest
+            release: latest
     name: Test MATLAB ${{ matrix.release }} on ${{ matrix.os }}
     steps:
       - name: Check out repository
@@ -38,6 +41,7 @@ jobs:
         with:
           release: ${{ matrix.release }}
           products: Simulink Simscape Simscape_Multibody
+          cache: true
       - name: Install WEC-Sim 1
         uses: matlab-actions/run-command@v1
         with:

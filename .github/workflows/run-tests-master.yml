@@ -20,6 +20,11 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         release: [R2020b, R2021a, R2021b, R2022a, R2022b, R2023a]
+        exclude:
+          - os: windows-latest
+            release: R2020b
+          - os: windows-latest
+            release: R2021a
         include:
           - os: ubuntu-latest
             release: latest
@@ -36,6 +41,7 @@ jobs:
         with:
           release: ${{ matrix.release }}
           products: Simulink Simscape Simscape_Multibody
+          cache: true
       - name: Install WEC-Sim
         uses: matlab-actions/run-command@v1
         with:
