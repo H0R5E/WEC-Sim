@@ -13,13 +13,17 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 jobs:
-  run_windows_tests:
-    runs-on: windows-latest
+  run_tests:
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest, windows-latest]
         release: [R2020b, R2021a, R2021b, R2022a, R2022b, R2023a]
-    name: MATLAB ${{ matrix.release }} on Windows
+        include:
+          - os: ubuntu-latest
+            release: latest
+    name: Test MATLAB ${{ matrix.release }} on ${{ matrix.os }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v3

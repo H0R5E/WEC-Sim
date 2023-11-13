@@ -5,7 +5,7 @@ on:
   workflow_dispatch: {}
   push:
     branches:
-      - dev
+      - solve_actions_issue
   pull_request:
     branches:
       - dev
@@ -13,13 +13,19 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 jobs:
-  run_windows_tests:
-    runs-on: windows-latest
+  run_tests:
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        release: [R2020b, R2021a, R2021b, R2022a, R2022b, R2023a]
-    name: MATLAB ${{ matrix.release }} on Windows
+        # os: [ubuntu-latest, windows-latest]
+        # release: [R2020b, R2021a, R2021b, R2022a, R2022b, R2023a]
+        # include:
+        #   - os: ubuntu-latest
+        #     release: latest
+        os: [windows-latest]
+        release: [R2020b]
+    name: Test MATLAB ${{ matrix.release }} on ${{ matrix.os }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -32,40 +38,17 @@ jobs:
         with:
           release: ${{ matrix.release }}
           products: Simulink Simscape Simscape_Multibody
-      - name: Install WEC-Sim
+      - name: Install WEC-Sim 1
         uses: matlab-actions/run-command@v1
         with:
           command: |
-            addpath(genpath('source')),
-            savepath pathdef.m;
-      - name: Run tests and generate artifacts
+            disp("Hello World");
+      - name: Install WEC-Sim 2
         uses: matlab-actions/run-command@v1
         with:
           command: |
-            set_param(0, 'ErrorIfLoadNewModel', 'off'),
-            results = wecSimTest,
-            assertSuccess(results);
-          startup-options: -noFigureWindows
-  run_linux_tests:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        release: [R2020b, R2021a, R2021b, R2022a, R2022b, R2023a, latest]
-    name: MATLAB ${{ matrix.release }} on Linux
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-        with:
-          lfs: true
-      - name: Check out LFS objects
-        run: git lfs checkout
-      - name: Install MATLAB
-        uses: matlab-actions/setup-matlab@v2-beta
-        with:
-          release: ${{ matrix.release }}
-          products: Simulink Simscape Simscape_Multibody
-      - name: Install WEC-Sim
+            addpath(genpath('source'))
+      - name: Install WEC-Sim 3
         uses: matlab-actions/run-command@v1
         with:
           command: |
