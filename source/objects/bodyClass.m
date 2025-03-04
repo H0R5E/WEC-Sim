@@ -949,19 +949,22 @@ classdef bodyClass<handle
             if obj.yaw.option==1 || ~isempty(dirBins)
                 % show warning for passive yaw run with incomplete BEM data
                 BEMdir=sort(obj.hydroData(iH).simulation_parameters.direction);
+                BEMdir=wrapTo180(BEMdir-180); %%% JNIFFENE added to shift the BEMdir to -180 to 180
                 boundDiff(1)=abs(-180 - BEMdir(1)); boundDiff(2)=abs(180 - BEMdir(end));
-                if obj.yaw.option ==1 && length(BEMdir)<3 || std(diff(BEMdir))>5 || max(boundDiff)>15
+                if obj.yaw.option ==1 && (length(BEMdir)<3 || std(diff(BEMdir))>5 || max(boundDiff)>15)
                     warning(['Passive yaw is not recommended without BEM data spanning a full yaw rotation -180 to 180 dg.' newline ...
                         'Please inspect BEM data for gaps'])
                     clear boundDiff
                 end
                 if ~isempty(dirBins)
-                  BEMdir=wrapTo180(BEMdir-180);
-                  boundDiff(1)=abs(min(dirBins,[],'all') - BEMdir(1)); boundDiff(2)=min(abs(max(dirBins,[],'all') - BEMdir(end)),...
-                    abs(max(dirBins,[],'all')-180-BEMdir(1)));
+                  boundDiff(1)=abs(min(dirBins,[],'all') - 180 - BEMdir(1)); boundDiff(2)=min(abs(max(dirBins,[],'all') -180 - BEMdir(end)),...
+                    abs(max(dirBins,[],'all')-180-180-BEMdir(1)));
                   [obj.hydroForce.(hfName).fExt.qDofGrd,null,obj.hydroForce.(hfName).fExt.qWGrd]=ndgrid([1:nDOF],dirBins(1,:),wv); % this is necessary for nd interpolation; query grids be same size as dirBins.
-                    if length(BEMdir)<3 || max(boundDiff)>15
-                        warning(['BEM directions do not cover the directional spread bins or are too coarse to define spread bin distribution.' newline ...
+                    if BEMdir(1) > min(dirBins,[],'all') || BEMdir(end) < max(dirBins,[],'all') %%% JNIFFENE added (split warning to specify if BEM directions cover directional spread)
+                        warning('BEM directions do not cover the directional spread bins')
+                    end
+                    if length(BEMdir)<3 || length(dirBins(:,1)) < 50 || length(dirBins(1,:)) < 50 %%% JNIFFENE added (if there is less than 50 dirBins then the resolution is considered too coarse)
+                        warning(['BEM directions are too coarse to define spread bin distribution.' newline ...
                         'Re-run with more bins']);
                         clear boundDiff BEMdir
                     end
@@ -970,6 +973,7 @@ classdef bodyClass<handle
                 [hdofGRD,hdirGRD,hwGRD]=ndgrid([1:nDOF],sortedDir, obj.hydroData(iH).simulation_parameters.w);
                  if (max(sortedDir) - min(sortedDir)) < 360
                     warning('Full directional wave spectra requires full 360 dg BEM. You do not have that. Attempting to fix via spline extrapolation. Ideally preprocess BEM')
+                    warning(['max sortedDir = ', int2str(max(sortedDir)), newline, 'min sortedDir = ', int2str(min(sortedDir))])
                     if min(sortedDir) > -180
                         sortedDir2=zeros(1,length(sortedDir)+1);
                         sortedDir2(2:end)=sortedDir;
